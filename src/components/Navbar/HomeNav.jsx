@@ -1,40 +1,8 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-// import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
 import { Link, useLocation } from "react-router-dom";
-// import AdbIcon from "@mui/icons-material/Adb";
-
-const pages = ["Products", "Pricing", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+import PagesDropdown from "../customerComponents/PagesDropdown";
 
 function HomeNav() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
   const usePathname1 = useLocation();
   const [scrolled, setScrolled] = React.useState(false);
 
@@ -53,181 +21,66 @@ function HomeNav() {
 
   return (
     <>
-      <AppBar position="static">
-        <Container maxWidth="xl">
-          <Toolbar disableGutters>
-            {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              href="#app-bar-with-responsive-menu"
-              sx={{
-                mr: 2,
-                display: { xs: "none", md: "flex" },
-                fontFamily: "monospace",
-                fontWeight: 700,
-                letterSpacing: ".3rem",
-                color: "inherit",
-                textDecoration: "none",
-              }}
-            >
-              LOGO
-            </Typography>
-
-            <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-              <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleOpenNavMenu}
-                color="inherit"
-              >
-                {/* <MenuIcon /> */}
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "left",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "left",
-                }}
-                open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
-                sx={{
-                  display: { xs: "block", md: "none" },
-                }}
-              >
-                {pages.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page}</Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
-            </Box>
-            {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
-            <Typography
-              variant="h5"
-              noWrap
-              component="a"
-              href="#app-bar-with-responsive-menu"
-              sx={{
-                mr: 2,
-                display: { xs: "flex", md: "none" },
-                flexGrow: 1,
-                fontFamily: "monospace",
-                fontWeight: 700,
-                letterSpacing: ".3rem",
-                color: "inherit",
-                textDecoration: "none",
-              }}
-            >
-              LOGO
-            </Typography>
-            <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-              {pages.map((page) => (
-                <Button
-                  key={page}
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "white", display: "block" }}
-                >
-                  {page}
-                </Button>
-              ))}
-            </Box>
-
-            <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title="Open settings">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                </IconButton>
-              </Tooltip>
-              <Menu
-                sx={{ mt: "45px" }}
-                id="menu-appbar"
-                anchorEl={anchorElUser}
-                anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                open={Boolean(anchorElUser)}
-                onClose={handleCloseUserMenu}
-              >
-                {settings.map((setting) => (
-                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">{setting}</Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
-            </Box>
-          </Toolbar>
-        </Container>
-      </AppBar>
       <nav
         className={`w-full bg-white z-30 sticky top-0 ${
           scrolled ? "mis-navbar" : ""
         }`}
       >
-        <div className="py-[5px] flex justify-between items-center px-[90px] max-[1024px]:px-[70px] max-[768px]:px-[40px] max-[500px]:px-4 max-[500px]:pt-6 max-w-[1444px] m-auto">
+        <div className="py-[5px] flex justify-between items-center">
           <div className="flex items-center gap-5">
-            {/* <TemporaryDrawer /> */}
             <img
-              src="/assets/logo.png"
+              src="../../../src/assets/navlogowithtext.webp"
               width={300}
               height={100}
               alt="Logo"
               className="w-[230px] py-3"
             />
           </div>
-          <div className="flex gap-[42px] font-mulish text-nowrap leading-5 max-[861px]:gap-[20px] max-[793px]:hidden">
+          <div className="flex gap-[42px] items-center font-mulish text-nowrap leading-5 max-[861px]:gap-[20px] max-[793px]:hidden">
             <Link
               href="/"
               className={`navlinks ${usePathname1 === "/" ? "selected" : ""}`}
             >
-              Home
+              Shops
             </Link>
             <Link
-              href="/aboutus"
+              href="/offers"
               className={`navlinks ${
-                usePathname1 === "/aboutus" ? "selected" : ""
+                usePathname1 === "/offers" ? "selected" : ""
               }`}
             >
-              About Us
+              Offers
             </Link>
             <Link
-              href="/services"
+              href="/contact"
               className={`navlinks ${
-                usePathname1 === "/services" ? "selected" : ""
+                usePathname1 === "/contact" ? "selected" : ""
               }`}
             >
-              Services
+              Contact
             </Link>
             <Link
-              href="/pricing"
-              className={`navlinks ${
-                usePathname1 === "/pricing" ? "selected" : ""
+              href="/pages"
+              className={`navlinks group/dropdown ${
+                usePathname1 === "/pages" ? "selected" : ""
               }`}
             >
-              Pricing
+              Pages
+              <PagesDropdown className="group-hover/dropdown:flex " />
+            </Link>
+            <Link
+              href="/contactus"
+              className="p-3 bg-[#009f7f] rounded-[5px] font-mulish font-semibold text-sm text-[#FFFFFF] max-[793px]:hidden"
+            >
+              Join
+            </Link>
+            <Link
+              href="/contactus"
+              className="p-3 bg-[#009f7f] rounded-[5px] font-mulish font-semibold text-sm text-[#FFFFFF] max-[793px]:hidden"
+            >
+              Become a seller
             </Link>
           </div>
-          <Link
-            href="/contactus"
-            className="px-[22px] py-[13px] bg-[#000000] rounded-[5px] font-mulish font-semibold text-lg leading-[23px] text-[#FFFFFF] max-[793px]:hidden"
-          >
-            Book a call
-          </Link>
         </div>
       </nav>
     </>
