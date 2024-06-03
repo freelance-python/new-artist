@@ -1,4 +1,6 @@
 import { useEffect } from "react";
+import HeroSectionHomePage from "../../components/customerComponents/HeroSectionHomePage";
+import CouponsCarousel from "../../components/customerComponents/CouponsCarousel";
 
 const Homepage = () => {
   useEffect(() => {
@@ -6,9 +8,8 @@ const Homepage = () => {
   });
   return (
     <>
-      <div style={{ background: "lightgrey", height:"200rem" }}>
-        Homepadffjdgnvvvvvvvvvvvvvvvvvvvvvvvvvv ge
-      </div>
+      <HeroSectionHomePage />
+      <CouponsCarousel />
     </>
   );
 };

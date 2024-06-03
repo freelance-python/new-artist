@@ -7,10 +7,32 @@
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
-.navlinks {
-  color: #000000;
-  font-size: 16px;
+.LinkTextColorHover {
+  color: #1f2937;
+  font-size: 14px;
   font-weight: 600;
+  line-height: 20px;
+}
+
+.LinkTextColorHover:hover {
+  color: #009f7f;
+}
+.LeftDrawerColorHover {
+  border-radius: 9999px;
+  outline-width: 0px;
+  color: #000102;
+  background-color: rgb(229 231 235);
+}
+
+.LeftDrawerColorHover:hover {
+  color: #ffffff;
+  background-color: #009f7f;
+}
+
+.navlinks {
+  color: #1f2937;
+  font-size: 16px;
+  font-weight: 400;
   line-height: 24px;
 }
 
@@ -18,21 +40,78 @@
   color: #009f7f;
 }
 
-.navlinks:hover {
+.navlinks:hover > span {
   color: #009f7f;
 }
 
-.dropnavlinks {
-  color: #000000;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 24px;
+.navlinks:hover svg {
+  fill: #009f7f;
 }
+
+.navlinks.selected svg {
+  fill: #009f7f;
+}
+
 .dropdownContainer {
-  background-color: #ffffff;
   padding: 10px 20px;
   z-index: 9999 !important;
-  position: absolute;
   height: auto;
-  top: 100px;
+}
+button.HideTopLeftDrawerMenu {
+  display: none;
+}
+
+@media only screen and (max-width: 1280px) and (min-width: 1023px) {
+  button.HideTopLeftDrawerMenu {
+    display: flex;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  button.HideTopLeftDrawerMenu {
+    display: none;
+  }
+}
+.input-group-box-hero-home {
+  display: flex;
+  align-items: center;
+}
+
+.input-search-hero-home {
+  min-height: 56px;
+  width: 100%;
+  padding: 0 1rem;
+  color: #fff;
+  border: 1px solid white;
+  border-radius: 6px 0 0 6px;
+  font-size: 15px;
+  background-color: white;
+}
+
+.button--submit-hero-home {
+  min-height: 50px;
+  min-width: 143px;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 0 6px 6px 0;
+  background-color: #009f7f;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.button--submit-hero-home:hover {
+  background-color: #009f7f;
+}
+
+.input-search-hero-home:focus {
+  border: 1px solid #009f7f;
+  border-radius: 6px 0 0 6px;
+}
+
+.input-search-hero-home:focus,
+.input-search-hero-home:focus-visible {
+  border-color: #009f7f;
+  outline: none;
 }
