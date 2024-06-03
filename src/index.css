@@ -7,10 +7,32 @@
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
-.navlinks {
-  color: #000000;
-  font-size: 16px;
+.LinkTextColorHover {
+  color: #1f2937;
+  font-size: 14px;
   font-weight: 600;
+  line-height: 20px;
+}
+
+.LinkTextColorHover:hover {
+  color: #009f7f;
+}
+.LeftDrawerColorHover {
+  border-radius: 9999px;
+  outline-width: 0px;
+  color: #000102;
+  background-color: rgb(229 231 235);
+}
+
+.LeftDrawerColorHover:hover {
+  color: #ffffff;
+  background-color: #009f7f;
+}
+
+.navlinks {
+  color: #1f2937;
+  font-size: 16px;
+  font-weight: 400;
   line-height: 24px;
 }
 
@@ -18,21 +40,35 @@
   color: #009f7f;
 }
 
-.navlinks:hover {
+.navlinks:hover > span {
   color: #009f7f;
 }
 
-.dropnavlinks {
-  color: #000000;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 24px;
+.navlinks:hover svg {
+  fill: #009f7f;
 }
+
+.navlinks.selected svg {
+  fill: #009f7f;
+}
+
 .dropdownContainer {
-  background-color: #ffffff;
   padding: 10px 20px;
   z-index: 9999 !important;
-  position: absolute;
   height: auto;
-  top: 100px;
+}
+button.HideTopLeftDrawerMenu {
+  display: none;
+}
+
+@media only screen and (max-width: 1280px) and (min-width: 1023px) {
+  button.HideTopLeftDrawerMenu {
+    display: flex;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  button.HideTopLeftDrawerMenu {
+    display: none;
+  }
 }

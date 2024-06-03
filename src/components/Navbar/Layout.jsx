@@ -6,10 +6,9 @@ const Layout = () => {
   const location = useLocation();
   const splitPath = location?.pathname.split("/");
   const current_page_1 = splitPath[1];
-
   return (
     <>
-      {current_page_1 == "home" ? <HomeNav /> : <VendorNav />}
+      {current_page_1 == "vendor" ? <VendorNav /> : <HomeNav />}
       <Outlet />
     </>
   );
