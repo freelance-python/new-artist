@@ -24,7 +24,7 @@ function HomeNav() {
   return (
     <>
       <nav
-        className={`w-full bg-white z-30 sticky top-0 ${
+        className={`w-full bg-[#fafafa] z-30 fixed top-0 ${
           scrolled ? "mis-navbar" : ""
         }`}
       >
@@ -104,7 +104,7 @@ function HomeNav() {
         </div>
       </nav>
 
-      <footer className="fixed bottom-0 z-10 flex h-12 w-full justify-between bg-light py-1.5 px-2 shadow-400 ltr:left-0 rtl:right-0 md:h-14 lg:hidden">
+      <footer className="bg-[#fafafa] fixed bottom-0 z-10 flex h-12 w-full justify-between py-1.5 px-2 shadow-400 ltr:left-0 rtl:right-0 md:h-14 lg:hidden">
         <LeftDrawerMenu />
         <button
           className="flex h-full items-center justify-center p-2 focus:text-accent focus:outline-0"

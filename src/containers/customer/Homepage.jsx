@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import HeroSectionHomePage from "../../components/customerComponents/HeroSectionHomePage";
+import CouponsCarousel from "../../components/customerComponents/CouponsCarousel";
 
 const Homepage = () => {
   useEffect(() => {
@@ -8,6 +9,7 @@ const Homepage = () => {
   return (
     <>
       <HeroSectionHomePage />
+      <CouponsCarousel />
     </>
   );
 };
