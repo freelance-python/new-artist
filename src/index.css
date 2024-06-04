@@ -4,8 +4,8 @@
 .mis-navbar {
   background: rgba(255, 255, 255, 0.6);
   box-shadow: 0 0px 8px 0px rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
 }
 .LinkTextColorHover {
   color: #1f2937;
@@ -114,4 +114,40 @@ button.HideTopLeftDrawerMenu {
 .input-search-hero-home:focus-visible {
   border-color: #009f7f;
   outline: none;
+}
+
+/***********************AutoModalContainer******************************/
+.AutoModalContainer {
+  border-radius: 12px;
+}
+.AutoModalBox {
+  background-color: #f9f6f6;
+  position: absolute;
+  border: none;
+  outline: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 892px;
+  box-shadow: 24px;
+}
+.HeadingTypoAutoModal {
+  font-family: "EB Garamond", serif;
+  font-weight: 500;
+  color: #000;
+  font-size: 38px;
+  line-height: 1.1em;
+  text-align: center;
+  max-width: 950px;
+}
+
+.DescriptionTextAutoModal {
+  font-family: "Raleway", sans-serif;
+  font-size: 15px;
+  line-height: 1.6em;
+  font-weight: 400;
+  color: #595959;
+  text-align: center;
+  margin: 0 0 52px 0;
 }

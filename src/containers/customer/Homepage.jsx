@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import HeroSectionHomePage from "../../components/customerComponents/HeroSectionHomePage";
 import CouponsCarousel from "../../components/customerComponents/CouponsCarousel";
+import CartButtonHome from "../../components/customerComponents/CartButtonHome";
+import AutoModal from "../../components/customerComponents/AutoModal";
 
 const Homepage = () => {
   useEffect(() => {
@@ -10,6 +12,8 @@ const Homepage = () => {
     <>
       <HeroSectionHomePage />
       <CouponsCarousel />
+      <CartButtonHome />
+      <AutoModal />
     </>
   );
 };
