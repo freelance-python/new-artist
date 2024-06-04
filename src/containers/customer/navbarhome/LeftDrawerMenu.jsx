@@ -21,7 +21,6 @@ export default function LeftDrawerMenu({ topNav }) {
   const [state, setState] = useState(false);
 
   const toggleDrawer = useCallback((event, type) => {
-    console.log({ event, type });
     if (
       event &&
       event.type === "keydown" &&

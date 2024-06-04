@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import HeroSectionHomePage from "../../components/customerComponents/HeroSectionHomePage";
 import CouponsCarousel from "../../components/customerComponents/CouponsCarousel";
-import CartButtonHome from "../../components/customerComponents/CartButtonHome";
 import AutoModal from "../../components/customerComponents/AutoModal";
+import ItemsListHome from "../../components/customerComponents/ItemsListHome";
+import RightCartItems from "../../components/customerComponents/RightCartItems";
 
 const Homepage = () => {
   useEffect(() => {
@@ -12,7 +13,8 @@ const Homepage = () => {
     <>
       <HeroSectionHomePage />
       <CouponsCarousel />
-      <CartButtonHome />
+      <ItemsListHome />
+      <RightCartItems />
       <AutoModal />
     </>
   );
