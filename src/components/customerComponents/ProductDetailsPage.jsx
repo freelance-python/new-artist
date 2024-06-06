@@ -7,10 +7,7 @@ const ProductDetailsPage = ({ productData }) => {
       <article className="rounded-lg bg-[#fff]">
         <div className="flex flex-col border-b border-border-200 border-opacity-70">
           <div className="flex">
-            {/* Product Gallery Section */}
             <div className="p-6 pt-10 md:w-1/2 lg:p-14 xl:p-16">
-              {/* Product Gallery Images */}
-              {/* You can implement Swiper component here */}
               <img src={productData?.image} alt="" className="h-96" />
             </div>
             <div className="flex flex-col items-start p-5 pt-10 md:w-1/2 lg:p-14 xl:p-16">
