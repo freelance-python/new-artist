@@ -13,7 +13,14 @@ const Homepage = () => {
     <>
       <HeroSectionHomePage />
       <CouponsCarousel />
-      <ItemsListHome />
+      <div className="px-[170px] max-[1024px]:px-[70px] max-[768px]:px-[40px] max-[500px]:px-4 w-full pt-3.5 bg-[#f3f4f6]">
+        <ItemsListHome />
+        <div className="flex justify-center mt-8 mb-4 lg:mt-12">
+          <button className="px-5 h-12 flex items-center bg-[#009f7f] hover:bg-[#019376] rounded-[5px] font-semibold text-sm text-[#FFFFFF]">
+            Load More
+          </button>
+        </div>
+      </div>
       <RightCartItems />
       <AutoModal />
     </>
