@@ -307,7 +307,7 @@ const ItemsListHome = () => {
           {texts.map((product, index) => (
             <Grid key={index} item>
               <Card className="h-full overflow-hidden rounded border border-[#e5e7eb] bg-[#fff] transition-shadow duration-200 hover:shadow-sm">
-                <div className="relative flex h-48 w-auto items-center justify-center sm:h-64">
+                <div className="relative flex h-68 w-auto items-center justify-center sm:h-72">
                   <CardMedia
                     component="img"
                     image={product.image}
