@@ -32,9 +32,9 @@ export default function LeftDrawerMenu({ topNav }) {
     setState(type);
   }, []);
 
-  const openDrawer = useCallback(() => toggleDrawer(null, true), []);
+  const openDrawer = useCallback(() => toggleDrawer(null, true), [toggleDrawer]);
 
-  const closeDrawer = useCallback(() => toggleDrawer(null, false), []);
+  const closeDrawer = useCallback(() => toggleDrawer(null, false), [toggleDrawer]);
 
   const list = (
     <Box sx={{ width: 448 }} role="presentation">

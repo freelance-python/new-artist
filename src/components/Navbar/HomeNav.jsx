@@ -19,7 +19,7 @@ function HomeNav() {
       const isScrolled = window.scrollY > 0;
       setScrolled(isScrolled);
 
-      const searchScroll = window.scrollY > 400;
+      const searchScroll = window.scrollY > 480;
       setShowSearchIcon(searchScroll);
     };
 

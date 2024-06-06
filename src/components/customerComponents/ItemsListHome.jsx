@@ -1,8 +1,39 @@
-import { Card, CardContent, CardMedia, Grid } from "@mui/material";
+import { Box, Card, CardContent, CardMedia, Grid, Modal } from "@mui/material";
 import { useState } from "react";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import ProductDetailsPage from "./ProductDetailsPage";
 
 const ItemsListHome = () => {
+  const [counter, setCounter] = useState({});
+  const [open, setOpen] = useState(false);
+  const [productDetail, setProductDetail] = useState({});
+
+  const handleDetailOpen = (e, product) => {
+    setOpen(true);
+    setProductDetail(product);
+  };
+  const handleDetailClose = () => {
+    setOpen(false);
+    setProductDetail({});
+  };
+
+  const handleIncreaseCounter = (index) => {
+    let oldCounterObj = { ...counter };
+    if (!oldCounterObj[index]) {
+      oldCounterObj = {
+        ...oldCounterObj,
+        [index]: 0,
+      };
+    }
+    oldCounterObj[index] += 1;
+    setCounter(oldCounterObj);
+  };
+
+  const handleDecreaseCounter = (index) => {
+    let oldCounterObj = { ...counter };
+    oldCounterObj[index] -= 1;
+    setCounter(oldCounterObj);
+  };
   const texts = [
     {
       discountPercent: "20%",
@@ -275,128 +306,126 @@ const ItemsListHome = () => {
       discountedPrice: "$12.00",
     },
   ];
-  const [counter, setCounter] = useState({});
-  const handleIncreaseCounter = (index) => {
-    let oldCounterObj = { ...counter };
-    if (!oldCounterObj[index]) {
-      oldCounterObj = {
-        ...oldCounterObj,
-        [index]: 0,
-      };
-    }
-    oldCounterObj[index] += 1;
-    setCounter(oldCounterObj);
-  };
-
-  const handleDecreaseCounter = (index) => {
-    let oldCounterObj = { ...counter };
-    oldCounterObj[index] -= 1;
-    setCounter(oldCounterObj);
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    border: "none",
+    overflowY: "scroll",
+    height: "95vh",
+    scrollbarWidth: "none",
+    "&:focus-visible": {
+      outline: "none !important",
+    },
   };
   return (
     <>
-      <div className="px-[90px] max-[1024px]:px-[70px] max-[768px]:px-[40px] max-[500px]:px-4 w-full pt-3.5 bg-[#f3f4f6]">
-        <Grid
-          container
-          sx={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
-            gap: "12px",
-          }}
-        >
-          {texts.map((product, index) => (
-            <Grid key={index} item>
-              <Card className="h-full overflow-hidden rounded border border-[#e5e7eb] bg-[#fff] transition-shadow duration-200 hover:shadow-sm">
-                <div className="relative flex h-68 w-auto items-center justify-center sm:h-72">
-                  <CardMedia
-                    component="img"
-                    image={product.image}
-                    alt={product.title}
-                  />
-                  <div className="absolute top-3 right-3 rounded-full bg-yellow-500 px-1.5 text-xs font-semibold leading-6 text-[#fff] sm:px-2 md:top-4 md:px-2.5">
-                    {product.discountPercent}
-                  </div>
+      <Grid
+        container
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
+          gap: "12px",
+        }}
+      >
+        {texts.map((product, index) => (
+          <Grid key={index} item>
+            <Card className="h-full overflow-hidden rounded bg-[#fff] duration-200 shadow-none">
+              <div className="relative flex h-68 w-auto items-center justify-center sm:h-72">
+                <CardMedia
+                  onClick={(e) => handleDetailOpen(e, product)}
+                  component="img"
+                  image={product.image}
+                  alt={product.title}
+                />
+
+                <div className="absolute top-3 right-3 rounded-full bg-yellow-500 px-1.5 text-xs font-semibold leading-6 text-[#fff] sm:px-2 md:top-4 md:px-2.5">
+                  {product.discountPercent}
                 </div>
-                <CardContent>
-                  <h3 className="mb-2 text-sm font-semibold truncate text-heading">
-                    {product.title}
-                  </h3>
-                  <p className="text-xs text-[#6c757d]">{product.weight}</p>
-                  <div className="relative flex items-center justify-between mt-7 min-h-6">
-                    <div className="relative">
-                      <del className="absolute text-xs italic text-opacity-75 -top-4 text-[#6c757d] md:-top-5">
-                        {product.originalPrice}
-                      </del>
-                      <span className="text-sm font-semibold text-[#019376] md:text-base">
-                        {product.discountedPrice}
-                      </span>
-                    </div>
-                    {counter[index] > 0 ? (
-                      <div className="flex overflow-hidden order-5 sm:order-4 w-9 sm:w-24 h-24 sm:h-10 bg-[#009f7f] text-[#fff] rounded-full flex-col-reverse sm:flex-row absolute sm:relative bottom-0 sm:bottom-auto ltr:right-0 rtl:left-0 ltr:sm:right-auto ltr:sm:left-auto">
-                        <button
-                          className="cursor-pointer p-2 transition-colors duration-200 hover:bg-[#019376] focus:outline-0 px-3 py-3 sm:px-2"
-                          onClick={() => handleDecreaseCounter(index)}
-                        >
-                          <svg
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            className="h-3 w-3 stroke-2.5"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M20 12H4"
-                            ></path>
-                          </svg>
-                        </button>
-                        <div className="flex flex-1 items-center justify-center px-3 text-sm font-semibold">
-                          {counter[index]}
-                        </div>
-                        <button
-                          className="cursor-pointer p-2 transition-colors duration-200 hover:bg-[#019376] focus:outline-0 px-3 py-3 sm:px-2"
-                          onClick={() => handleIncreaseCounter(index)}
-                        >
-                          <svg
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            className="md:w-4.5 h-3.5 w-3.5 stroke-2.5 md:h-4.5"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                            ></path>
-                          </svg>
-                        </button>
-                      </div>
-                    ) : (
-                      <div className="flex w-24 h-10">
-                        <button
-                          className="order-5 flex items-center justify-center rounded-full border-2 border-[#f3f4f6] bg-[#fff] px-3 py-2 text-sm font-semibold text-[#019376] transition-colors duration-300 hover:border-[#019376] hover:bg-[#019376] hover:text-[#fff] focus:border-[#019376] focus:bg-[#019376] focus:text-[#fff] focus:outline-0 sm:order-4 sm:justify-start sm:px-5"
-                          onClick={() => handleIncreaseCounter(index)}
-                        >
-                          <ShoppingCartIcon
-                            className="shrink-0"
-                            style={{ width: "16px", height: "16px" }}
-                          />
-                          <span className="flex ml-2 mr-2">Cart</span>
-                        </button>
-                      </div>
-                    )}
+              </div>
+              <CardContent>
+                <h3 className="mb-2 text-sm font-semibold truncate text-heading">
+                  {product.title}
+                </h3>
+                <p className="text-xs text-[#6c757d]">{product.weight}</p>
+                <div className="relative flex items-center justify-between mt-7 min-h-6">
+                  <div className="relative">
+                    <del className="absolute text-xs italic text-opacity-75 -top-4 text-[#6c757d] md:-top-5">
+                      {product.originalPrice}
+                    </del>
+                    <span className="text-sm font-semibold text-[#019376] md:text-base">
+                      {product.discountedPrice}
+                    </span>
                   </div>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-        <div className="flex justify-center mt-8 mb-4 lg:mt-12">
-          <button className="px-5 h-12 flex items-center bg-[#009f7f] hover:bg-[#019376] rounded-[5px] font-semibold text-sm text-[#FFFFFF]">
-            Load More
-          </button>
-        </div>
-      </div>
+                  {counter[index] > 0 ? (
+                    <div className="flex overflow-hidden order-5 sm:order-4 w-9 sm:w-24 h-24 sm:h-10 bg-[#009f7f] text-[#fff] rounded-full flex-col-reverse sm:flex-row absolute sm:relative bottom-0 sm:bottom-auto ltr:right-0 rtl:left-0 ltr:sm:right-auto ltr:sm:left-auto">
+                      <button
+                        className="cursor-pointer p-2 transition-colors duration-200 hover:bg-[#019376] focus:outline-0 px-3 py-3 sm:px-2"
+                        onClick={() => handleDecreaseCounter(index)}
+                      >
+                        <svg
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          className="h-3 w-3 stroke-2.5"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M20 12H4"
+                          ></path>
+                        </svg>
+                      </button>
+                      <div className="flex flex-1 items-center justify-center px-3 text-sm font-semibold">
+                        {counter[index]}
+                      </div>
+                      <button
+                        className="cursor-pointer p-2 transition-colors duration-200 hover:bg-[#019376] focus:outline-0 px-3 py-3 sm:px-2"
+                        onClick={() => handleIncreaseCounter(index)}
+                      >
+                        <svg
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          className="md:w-4.5 h-3.5 w-3.5 stroke-2.5 md:h-4.5"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="flex w-24 h-10">
+                      <button
+                        className="order-5 flex items-center justify-center rounded-full border-2 border-[#f3f4f6] bg-[#fff] px-3 py-2 text-sm font-semibold text-[#019376] transition-colors duration-300 hover:border-[#019376] hover:bg-[#019376] hover:text-[#fff] focus:border-[#019376] focus:bg-[#019376] focus:text-[#fff] focus:outline-0 sm:order-4 sm:justify-start sm:px-5"
+                        onClick={() => handleIncreaseCounter(index)}
+                      >
+                        <ShoppingCartIcon
+                          className="shrink-0"
+                          style={{ width: "16px", height: "16px" }}
+                        />
+                        <span className="flex ml-2 mr-2">Cart</span>
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+        <Modal open={open} onClose={handleDetailClose}>
+          <Box
+            sx={style}
+            className="w-full max-w-6xl bg-light md:rounded-xl xl:min-w-[1152px]"
+          >
+            <ProductDetailsPage productData={productDetail} />
+          </Box>
+        </Modal>
+      </Grid>
     </>
   );
 };
