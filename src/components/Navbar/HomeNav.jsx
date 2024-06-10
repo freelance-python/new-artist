@@ -1,14 +1,27 @@
 import { Link, useLocation } from "react-router-dom";
 import PagesDropdown from "../customerComponents/PagesDropdown";
 import LeftDrawerMenu from "../../containers/customer/navbarhome/LeftDrawerMenu";
-import { Box } from "@mui/material";
+import { Box, Dialog } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
+// import LoginCustomer from "../customerComponents/auth/LoginCustomer";
+// import RegisterCustomer from "../customerComponents/auth/RegisterCustomer";
+import MobileLoginCustomer from "../customerComponents/auth/MobileLoginCustomer";
+import LoginCustomer from "../customerComponents/auth/LoginCustomer";
+import RegisterCustomer from "../customerComponents/auth/RegisterCustomer";
+import ForgotPassword from "../customerComponents/auth/ForgotPassword";
 
 function HomeNav() {
   const usePathname1 = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [showSearchIcon, setShowSearchIcon] = useState(false);
   const [showSearchBar, setShowSearchBar] = useState(false);
+  const [open, setLoginOpen] = useState(false);
+  const handleLoginOpen = (type = "login") => {
+    setLoginOpen(type);
+  };
+  const handleLoginClose = () => {
+    setLoginOpen(false);
+  };
 
   const toggleSearchbarVisibility = useCallback(() => {
     setShowSearchBar((prev) => !prev);
@@ -29,6 +42,13 @@ function HomeNav() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  const style = {
+    position: "relative",
+    border: "none",
+    "&:focus-visible": {
+      outline: "none !important",
+    },
+  };
 
   return (
     <>
@@ -112,12 +132,12 @@ function HomeNav() {
             )}
 
             <div className="flex gap-4 right-0">
-              <Link
-                to="/contactus"
+              <button
+                onClick={handleLoginOpen}
                 className="px-3 h-9 flex items-center bg-[#009f7f] hover:bg-[#019376] rounded-[5px] font-mulish font-semibold text-sm text-[#FFFFFF] max-[1023px]:hidden"
               >
                 Join
-              </Link>
+              </button>
               <Link
                 to="/contactus"
                 className="px-3 h-9 flex items-center bg-[#009f7f] hover:bg-[#019376] rounded-[5px] font-mulish font-semibold text-sm text-[#FFFFFF] max-[640px]:hidden"
@@ -127,6 +147,30 @@ function HomeNav() {
             </div>
           </div>
         </div>
+        {open && (
+          <Dialog
+            id="login-page-modal"
+            open={open}
+            scroll="body"
+            onClose={handleLoginClose}
+            PaperProps={{ sx: { maxWidth: "fit-content" } }}
+          >
+            <Box
+              sx={style}
+              className="w-full max-w-6xl bg-white md:rounded-xl xl:min-w-[480px]"
+            >
+              {open === "mobile" ? (
+                <MobileLoginCustomer handleModalType={handleLoginOpen} />
+              ) : open === "register" ? (
+                <RegisterCustomer handleModalType={handleLoginOpen}/>
+              ) : open === "forgot-password" ? (
+                <ForgotPassword handleModalType={handleLoginOpen}/>
+              ) : (
+                <LoginCustomer handleModalType={handleLoginOpen}/>
+              )}
+            </Box>
+          </Dialog>
+        )}
         {showSearchBar && (
           <div className="absolute top-0 z-20 flex h-full w-full items-center justify-center space-x-4 bg-[#fff] px-5 py-1.5 backdrop-blur ltr:left-0 rtl:right-0 rtl:space-x-reverse lg:border lg:bg-opacity-80">
             <form className="w-full lg:max-w-3xl">
