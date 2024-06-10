@@ -252,7 +252,7 @@ const ProductDetailsPage = ({
             <h2 className="mb-6 text-lg font-semibold tracking-tight text-heading">
               Related Products
             </h2>
-            <ItemsListHome hideProductOfIndex={productData.index}/>
+            <ItemsListHome hideProductOfIndex={productData.index} />
           </div>
         </div>
       </div>
