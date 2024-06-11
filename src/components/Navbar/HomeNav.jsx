@@ -3,8 +3,6 @@ import PagesDropdown from "../customerComponents/PagesDropdown";
 import LeftDrawerMenu from "../../containers/customer/navbarhome/LeftDrawerMenu";
 import { Box, Dialog } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
-// import LoginCustomer from "../customerComponents/auth/LoginCustomer";
-// import RegisterCustomer from "../customerComponents/auth/RegisterCustomer";
 import MobileLoginCustomer from "../customerComponents/auth/MobileLoginCustomer";
 import LoginCustomer from "../customerComponents/auth/LoginCustomer";
 import RegisterCustomer from "../customerComponents/auth/RegisterCustomer";
@@ -250,6 +248,7 @@ function HomeNav() {
         <button
           className="flex h-full items-center justify-center p-2 focus:text-accent focus:outline-0"
           tabIndex="0"
+          onClick={handleLoginOpen}
         >
           <FaRegUser size={20} />
         </button>
