@@ -1,8 +1,9 @@
 import { Box, Card, CardContent, CardMedia, Dialog, Grid } from "@mui/material";
 import { useState } from "react";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { MdShoppingBasket } from "react-icons/md";
 import ProductDetailsPage from "./ProductDetailsPage";
 import propTypes from "prop-types";
+import { FiPlus, FiMinus } from "react-icons/fi";
 
 const ItemsListHome = ({ hideProductOfIndex = -1 }) => {
   const [counter, setCounter] = useState({});
@@ -320,7 +321,10 @@ const ItemsListHome = ({ hideProductOfIndex = -1 }) => {
         container
         sx={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
+          gridTemplateColumns: {
+            xs: "repeat(auto-fill, minmax(180px, 1fr))",
+            lg: "repeat(auto-fill, minmax(250px, 1fr))",
+          },
           gap: "12px",
         }}
       >
@@ -362,18 +366,7 @@ const ItemsListHome = ({ hideProductOfIndex = -1 }) => {
                           className="cursor-pointer p-2 transition-colors duration-200 hover:bg-[#019376] focus:outline-0 px-3 py-3 sm:px-2"
                           onClick={() => handleDecreaseCounter(index)}
                         >
-                          <svg
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            className="h-3 w-3 stroke-2.5"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M20 12H4"
-                            ></path>
-                          </svg>
+                          <FiMinus />
                         </button>
                         <div className="flex flex-1 items-center justify-center px-3 text-sm font-semibold">
                           {counter[index]}
@@ -382,31 +375,17 @@ const ItemsListHome = ({ hideProductOfIndex = -1 }) => {
                           className="cursor-pointer p-2 transition-colors duration-200 hover:bg-[#019376] focus:outline-0 px-3 py-3 sm:px-2"
                           onClick={() => handleIncreaseCounter(index)}
                         >
-                          <svg
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            className="md:w-4.5 h-3.5 w-3.5 stroke-2.5 md:h-4.5"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                            ></path>
-                          </svg>
+                          <FiPlus />
                         </button>
                       </div>
                     ) : (
                       <div className="flex w-24 h-10">
                         <button
-                          className="order-5 flex items-center justify-center rounded-full border-2 border-[#f3f4f6] bg-[#fff] px-3 py-2 text-sm font-semibold text-[#019376] transition-colors duration-300 hover:border-[#019376] hover:bg-[#019376] hover:text-[#fff] focus:border-[#019376] focus:bg-[#019376] focus:text-[#fff] focus:outline-0 sm:order-4 sm:justify-start sm:px-5"
+                          className="order-5 flex gap-2 items-center justify-center rounded-full border-2 border-[#f3f4f6] bg-[#fff] px-3 py-2 text-sm font-semibold text-[#019376] transition-colors duration-300 hover:border-[#019376] hover:bg-[#019376] hover:text-[#fff] focus:border-[#019376] focus:bg-[#019376] focus:text-[#fff] focus:outline-0 sm:order-4 sm:justify-start sm:px-5"
                           onClick={() => handleIncreaseCounter(index)}
                         >
-                          <ShoppingCartIcon
-                            className="shrink-0"
-                            style={{ width: "16px", height: "16px" }}
-                          />
-                          <span className="flex ml-2 mr-2">Cart</span>
+                          <MdShoppingBasket size={16} className="shrink-0" />
+                          Cart
                         </button>
                       </div>
                     )}
