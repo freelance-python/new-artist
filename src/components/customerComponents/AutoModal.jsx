@@ -1,24 +1,19 @@
 import { useState, useEffect } from "react";
-import {
-  Box,
-  Typography,
-  Modal,
-  Grid,
-  FormControlLabel,
-  Checkbox,
-  Button,
-  Input,
-  FormControl,
-} from "@mui/material";
+import { Box, Modal, Grid, Checkbox } from "@mui/material";
 import { IoMdClose } from "react-icons/io";
 import { IoSend } from "react-icons/io5";
-import CancelPresentationIcon from "@mui/icons-material/CancelPresentation";
 
 const AutoModal = () => {
   const [open, setOpen] = useState(false);
+  const handleClose = () => setOpen(false);
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Submitted email:", email);
+  };
 
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -29,115 +24,102 @@ const AutoModal = () => {
   }, []);
 
   return (
-    <>
-      <div className="AutoModalContainer">
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
+    <Modal
+      open={open}
+      onClose={handleClose}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
+      <Box className="AutoModalBox rounded-xl absolute w-11/12 bg-[#f9f6f6]">
+        <button className="absolute top-4 right-4 z-[1] flex bg-gray-200 h-10 w-10 rounded-full justify-center items-center">
+          <IoMdClose onClick={handleClose} size={24} color="black" />
+        </button>
+        <Box
+          sx={{
+            maxWidth: "100%",
+            backgroundColor: "white",
+            borderRadius: 2,
+          }}
         >
-          <Box className="AutoModalBox">
-            <IoMdClose
-              onClick={handleClose}
-              size={24}
-              style={{
-                position: "absolute",
-                color: "black",
-                top: "40px",
-                right: "44px",
-                zIndex: 1,
-              }}
-            />
-            <Box
+          <Grid container>
+            <Grid
+              item
+              xs={12}
+              md={6}
+              className="ImagePopupHidden"
+              sx={{ order: { xs: 1, md: 2 } }}
+            >
+              <Box
+                component="img"
+                src="https://pickbazarlaravel.s3.ap-southeast-1.amazonaws.com/1791/pickbazar02.png"
+                alt="Get 25% Discount"
+                sx={{
+                  width: "100%",
+                  height: { xs: "18rem", md: "28.125rem" },
+                  position: "relative",
+                  objectFit: "contain",
+                  color: "transparent",
+                  gridColumn: { xs: "span 2", md: "span 1" },
+                }}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              md={6}
               sx={{
-                maxWidth: "100%",
-                backgroundColor: "white",
-                borderRadius: 2,
+                p: { xs: 2, md: 4 },
+                order: { xs: 2, md: 1 },
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
               }}
             >
-              <Grid container>
-                <Grid
-                  item
-                  xs={12}
-                  md={6}
-                  className="ImagePopupHidden"
-                  sx={{ order: { xs: 1, md: 2 } }}
-                >
-                  <Box
-                    component="img"
-                    src="https://pickbazarlaravel.s3.ap-southeast-1.amazonaws.com/1791/pickbazar02.png"
-                    alt="Get 25% Discount"
-                    sx={{ width: "100%", height: "auto", borderRadius: 1 }}
-                  />
-                </Grid>
-                <Grid
-                  item
-                  xs={12}
-                  md={6}
-                  sx={{
-                    p: { xs: 2, md: 4 },
-                    order: { xs: 2, md: 1 },
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                  }}
-                >
-                  <Typography
-                    variant="h3"
-                    component="h2"
-                    sx={{ mb: 2, fontWeight: "bold" }}
-                  >
-                    Get 25% Discount
-                  </Typography>
-                  <Typography
-                    sx={{ mb: 4, color: "text.secondary", lineHeight: 1.5 }}
-                  >
-                    Subscribe to the mailing list to receive updates on new
-                    arrivals, special offers and our promotions.
-                  </Typography>
-                  <FormControl component="form" sx={{ mb: 3 }}>
-                    <Box
-                      sx={{
-                        position: "relative",
-                        display: "flex",
-                        alignItems: "center",
-                        width: "100%",
-                        backgroundColor: "gray.50",
-                        borderRadius: 1,
-                      }}
-                    >
-                      <Input
+              <h2 className="text-3xl font-bold mb-4">Get 25% Discount</h2>
+              <p className="mb-10 text-[#111111] text-lg">
+                Subscribe to the mailing list to receive updates on new
+                arrivals, special offers and our promotions.
+              </p>
+              <div className="flex flex-col">
+                <div className="flex flex-col">
+                  <form onSubmit={handleSubmit} noValidate>
+                    <div className="relative w-full rounded border border-gray-200 bg-gray-50 pr-11">
+                      <input
                         type="email"
+                        id="email_subscribe"
+                        name="email"
                         placeholder="Write your email here"
-                        disableUnderline
-                        sx={{ pl: 2, pr: 5, flex: 1, height: 56 }}
+                        className="h-14 w-full border-0 bg-transparent text-sm text-body outline-none pl-5"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                       />
-                      <Button sx={{ position: "absolute", right: 8 }}>
-                        <IoSend size={20} color="grey" />
-                      </Button>
-                    </Box>
-                  </FormControl>
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        defaultChecked
-                        color="default"
-                        sx={{ padding: "8px 0px" }}
-                        icon={<CancelPresentationIcon />}
-                        checkedIcon={<CancelPresentationIcon />}
-                      />
-                    }
-                    label="Don't show this popup again"
-                    sx={{ color: "text.primary" }}
-                  />
-                </Grid>
-              </Grid>
-            </Box>
-          </Box>
-        </Modal>
-      </div>
-    </>
+                      <button
+                        type="submit"
+                        className="absolute top-1/2 transform -translate-y-1/2 right-3"
+                      >
+                        <IoSend
+                          size={20}
+                          className="email-send-icon-automodal"
+                        />
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div className="mt-12">
+                <div className="flex items-center">
+                  <Checkbox color="success" />
+                  <label className="text-[#6b7280] text-sm">
+                    Don&apos;t show this popup again
+                  </label>
+                </div>
+              </div>
+            </Grid>
+          </Grid>
+        </Box>
+      </Box>
+    </Modal>
   );
 };
 
