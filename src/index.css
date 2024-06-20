@@ -88,7 +88,7 @@ button.HideTopLeftDrawerMenu {
   background-color: white;
 }
 
-.button--submit-hero-home {
+.button-submit-hero-home {
   min-height: 50px;
   min-width: 143px;
   padding: 0.5em 1em;
@@ -101,7 +101,7 @@ button.HideTopLeftDrawerMenu {
   transition: background-color 0.3s ease-in-out;
 }
 
-.button--submit-hero-home:hover {
+.button-submit-hero-home:hover {
   background-color: #009f7f;
 }
 
@@ -171,7 +171,7 @@ button.HideTopLeftDrawerMenu {
   background-color: white;
 }
 
-.button--submit-mobile-modal {
+.button-submit-mobile-modal {
   min-height: 50px;
   min-width: 143px;
   padding: 0.5em 1em;
@@ -184,7 +184,7 @@ button.HideTopLeftDrawerMenu {
   transition: background-color 0.3s ease-in-out;
 }
 
-.button--submit-mobile-modal:hover {
+.button-submit-mobile-modal:hover {
   background-color: #009f7f;
 }
 
@@ -215,4 +215,26 @@ button.HideTopLeftDrawerMenu {
 .InputLabelAuthPage:focus-visible {
   border-color: #009f7f;
   outline: none;
+}
+
+/****************Offers Page ********************************/
+.home-icon-offers-hero-section {
+  transition: color 0.3s;
+  color: #808080;
+}
+
+.home-icon-offers-hero-section:hover {
+  color: #009f7f;
+}
+
+/*******************Home Footer*********************************/
+
+.footerLogo {
+  height: auto;
+  max-width: 100%;
+}
+
+.footerHeadingText {
+  font-size: 30px;
+  color: #009f7f;
 }

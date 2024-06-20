@@ -53,7 +53,7 @@ const HeroSectionHomePage = () => {
               id="text"
               placeholder="Search your products from here"
             />
-            <button className="button--submit-hero-home flex h-full gap-2 items-center justify-center rounded-lg px-8 font-semibold transition-colors duration-200 focus:outline-0 ltr:rounded-tl-none ltr:rounded-bl-none rtl:rounded-tr-none rtl:rounded-br-none">
+            <button className="button-submit-hero-home flex h-full gap-2 items-center justify-center rounded-lg px-8 font-semibold transition-colors duration-200 focus:outline-0 ltr:rounded-tl-none ltr:rounded-bl-none rtl:rounded-tr-none rtl:rounded-br-none">
               <IoSearchSharp size={20} />
               Search
             </button>

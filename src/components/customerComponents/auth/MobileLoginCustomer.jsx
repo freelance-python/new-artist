@@ -31,7 +31,7 @@ const MobileLoginCustomer = ({ handleModalType }) => {
             id="tel"
             placeholder="+91"
           />
-          <button className="button--submit-mobile-modal rounded-lg px-8 font-semibold transition-colors duration-200">
+          <button className="button-submit-mobile-modal rounded-lg px-8 font-semibold transition-colors duration-200">
             Send OTP
           </button>
         </div>

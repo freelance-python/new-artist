@@ -82,30 +82,25 @@ const AutoModal = () => {
                 arrivals, special offers and our promotions.
               </p>
               <div className="flex flex-col">
-                <div className="flex flex-col">
-                  <form onSubmit={handleSubmit} noValidate>
-                    <div className="relative w-full rounded border border-gray-200 bg-gray-50 pr-11">
-                      <input
-                        type="email"
-                        id="email_subscribe"
-                        name="email"
-                        placeholder="Write your email here"
-                        className="h-14 w-full border-0 bg-transparent text-sm text-body outline-none pl-5"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                      />
-                      <button
-                        type="submit"
-                        className="absolute top-1/2 transform -translate-y-1/2 right-3"
-                      >
-                        <IoSend
-                          size={20}
-                          className="email-send-icon-automodal"
-                        />
-                      </button>
-                    </div>
-                  </form>
-                </div>
+                <form onSubmit={handleSubmit} noValidate>
+                  <div className="relative w-full rounded border border-gray-200 bg-gray-50 pr-11">
+                    <input
+                      type="email"
+                      id="email_subscribe"
+                      name="email"
+                      placeholder="Write your email here"
+                      className="h-14 w-full border-0 bg-transparent text-sm text-body outline-none pl-5"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <button
+                      type="submit"
+                      className="absolute top-1/2 transform -translate-y-1/2 right-3"
+                    >
+                      <IoSend size={20} className="email-send-icon-automodal" />
+                    </button>
+                  </div>
+                </form>
               </div>
               <div className="mt-12">
                 <div className="flex items-center">
