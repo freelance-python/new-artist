@@ -1,19 +1,33 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Homepage from "../containers/customer/Homepage";
 import Vendor from "../containers/vendor/Vendor";
-import Layout from "../components/Navbar/Layout";
-import LeftDrawerMenu from "../containers/customer/navbarhome/LeftDrawerMenu"
+import Layout, { FooterLayout } from "../components/navbar/Layout";
+import OffersHome from "../containers/customer/OffersHome";
 
 const AppRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
+        {/* auth routes */}
+        {/* <Route path="/login" element={<Loginpage />} /> */}
+
+        {/* user routes start */}
         <Route element={<Layout />}>
           <Route path="/" element={<Homepage />} />
           <Route path="/home" element={<Homepage />} />
-          <Route path="/vendor" element={<Vendor />} />
-          <Route path="/sfg" element={<LeftDrawerMenu />} />
+
+          <Route element={<FooterLayout />}>
+            <Route path="/offers" element={<OffersHome />} />
+          </Route>
+          
         </Route>
+        {/* user routes end */}
+
+        {/* vendor routes start */}
+        <Route element={<Layout type="vendor" />}>
+          <Route path="/vendor" element={<Vendor />} />
+        </Route>
+        {/* vendor routes end */}
       </Routes>
     </BrowserRouter>
   );

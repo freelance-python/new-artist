@@ -9,7 +9,6 @@ const PagesDropdown = ({ className }) => {
       <div className="flex flex-col md:w-1/2 w-full">
         {[
           { text: "Flash Sale", href: "/flash-sales" },
-          { text: "Manufacturers/Publishers", href: "/manufacturers" },
           { text: "Authors", href: "/authors" },
           { text: "FAQ", href: "/help" },
           { text: "Terms & Conditions", href: "/terms" },

@@ -1,7 +1,8 @@
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import Box from "@mui/material/Box";
 import { useCallback, useState } from "react";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { IoBagCheck } from "react-icons/io5";
+import { IoMdClose } from "react-icons/io";
 
 export default function RightCartItems() {
   const [state, setState] = useState(false);
@@ -179,10 +180,7 @@ export default function RightCartItems() {
         onClick={openDrawerRightCart}
       >
         <span className="flex pb-0.5">
-          <ShoppingCartIcon
-            className="shrink-0"
-            style={{ width: "14px", height: "16px" }}
-          />
+          <IoBagCheck size={18} />
           <span className="flex ml-2 mr-2">2 Items</span>
         </span>
         <span className="w-full px-2 py-2 mt-3 rounded bg-[#ffffff] text-[#009f7f]">
@@ -200,7 +198,7 @@ export default function RightCartItems() {
             <div className="fixed top-0 z-20 flex w-full max-w-md items-center justify-between border-b border-border-200 border-opacity-75 bg-white p-5 px-5 md:px-6">
               <a className="inline-flex w-24 md:w-auto" href="/">
                 <span className="relative flex h-[2.125rem] overflow-hidden md:w-[8.625rem] text-[#009f7f]">
-                  <ShoppingCartIcon />
+                  <IoBagCheck size={18} />
                   <p>2 Items</p>
                 </span>
               </a>
@@ -208,18 +206,7 @@ export default function RightCartItems() {
                 className="flex h-7 w-7 items-center justify-center transition-all duration-200 LeftDrawerColorHover"
                 onClick={closeDrawerRightCart}
               >
-                <svg
-                  className="h-2.5 w-2.5"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
+                <IoMdClose size={18} />
               </button>
             </div>
             {emptyCartMessage}

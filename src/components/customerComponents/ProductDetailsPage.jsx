@@ -4,6 +4,7 @@ import { useState } from "react";
 import clsx from "clsx";
 import { Box } from "@mui/material";
 import { useEffect } from "react";
+import CarouselProductDetailImage from "./CarouselProductDetailImage";
 
 const ProductDetailsPage = ({
   productData,
@@ -133,7 +134,8 @@ const ProductDetailsPage = ({
           <div className="flex flex-col border-b border-border-200 border-opacity-70">
             <div className="flex">
               <div className="p-6 pt-10 md:w-1/2 lg:p-14 xl:p-16">
-                <img src={productData?.image} alt="" className="h-96" />
+                {/* <img src={productData?.image} alt="" className="h-96" /> */}
+                <CarouselProductDetailImage imagesData={Array(8).fill(productData?.image)}/>
               </div>
               <div className="flex flex-col items-start p-5 pt-10 md:w-1/2 lg:p-14 xl:p-16">
                 <div className="w-full">
@@ -264,7 +266,7 @@ export default ProductDetailsPage;
 
 ProductDetailsPage.propTypes = {
   productData: propTypes.object.isRequired,
-  cartCounter: propTypes.array.isRequired,
+  cartCounter: propTypes.object.isRequired,
   onIncreaseQuantity: propTypes.func.isRequired,
   onDecreaseQuantity: propTypes.func.isRequired,
 };
