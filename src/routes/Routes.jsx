@@ -3,6 +3,7 @@ import Homepage from "../containers/customer/Homepage";
 import Vendor from "../containers/vendor/Vendor";
 import Layout, { FooterLayout } from "../components/navbar/Layout";
 import OffersHome from "../containers/customer/OffersHome";
+import FlashSalesHome from "../containers/customer/FlashSalesHome";
 
 const AppRoutes = () => {
   return (
@@ -18,6 +19,7 @@ const AppRoutes = () => {
 
           <Route element={<FooterLayout />}>
             <Route path="/offers" element={<OffersHome />} />
+            <Route path="/flash-sales" element={<FlashSalesHome />} />
           </Route>
           
         </Route>

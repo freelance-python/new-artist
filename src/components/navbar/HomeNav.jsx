@@ -62,18 +62,20 @@ function HomeNav() {
         <div className="py-[5px] flex w-full transform-gpu items-center justify-between bg-light px-5 transition-transform duration-300 lg:h-20 lg:px-6 2xl:px-8">
           <div className="flex items-center gap-5">
             <LeftDrawerMenu topNav={true} />
-            <img
-              src="../../../src/assets/navlogowithtext.webp"
-              alt="Logo"
-              className="relative h-[2.125rem] w-32 overflow-hidden md:w-[8.625rem]"
-            />
+            <Link to="/home">
+              <img
+                src="../../../src/assets/navlogowithtext.webp"
+                alt="Logo"
+                className="relative h-[2.125rem] w-32 overflow-hidden md:w-[8.625rem]"
+              />
+            </Link>
           </div>
           <div className="flex gap-[22px] items-center">
             <div className="flex gap-[22px] items-center font-mulish text-nowrap leading-5 max-[861px]:gap-[20px] max-[1279px]:hidden">
               <Link
-                to="/"
+                to="/shops"
                 className={`navlinks ${
-                  usePathname1.pathname === "/" ? "selected" : ""
+                  usePathname1.pathname === "/shops" ? "selected" : ""
                 }`}
               >
                 Shops
