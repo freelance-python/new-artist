@@ -1,4 +1,4 @@
-import { Box, List, ListItem, ListItemText, Typography } from "@mui/material";
+import { Box, List, ListItem, ListItemText } from "@mui/material";
 import propTypes from "prop-types";
 
 const SaleCard = ({ details }) => {
@@ -22,23 +22,15 @@ const SaleCard = ({ details }) => {
           }}
         />
       </Box>
-      <Typography
-        variant="h6"
-        className="mb-3 text-base font-semibold text-muted-black md:text-lg"
-      >
+      <h2 className="mb-2 text-base font-semibold text-[#111111] md:text-lg">
         {details?.title}
-      </Typography>
-      <List className="space-y-2 text-base">
+      </h2>
+      <List className="text-base" sx={{ padding: "0 !important" }}>
         <ListItem
           className="flex items-center gap-2"
           sx={{ padding: "0 !important" }}
         >
-          <Typography
-            component="span"
-            className="font-semibold text-muted-black"
-          >
-            Offer Till:
-          </Typography>
+          <span className="font-semibold text-[#111111]">Offer Till:</span>
           <ListItemText
             primary={details?.till}
             className="font-normal text-[#666]"
@@ -48,12 +40,7 @@ const SaleCard = ({ details }) => {
           className="flex items-center gap-2"
           sx={{ padding: "0 !important" }}
         >
-          <Typography
-            component="span"
-            className="font-semibold text-muted-black"
-          >
-            Campaign status:
-          </Typography>
+          <span className="font-semibold text-[#111111]">Campaign status:</span>
           <ListItemText
             primary={details?.status}
             className="font-normal text-[#666]"
@@ -63,12 +50,9 @@ const SaleCard = ({ details }) => {
           className="flex items-center gap-2"
           sx={{ padding: "0 !important" }}
         >
-          <Typography
-            component="span"
-            className="font-semibold text-muted-black"
-          >
+          <span className="font-semibold text-[#111111]">
             Campaign type on:
-          </Typography>
+          </span>
           <ListItemText
             primary={details?.type}
             className="font-normal text-[#666]"
@@ -78,12 +62,7 @@ const SaleCard = ({ details }) => {
           className="flex items-center gap-2"
           sx={{ padding: "0 !important" }}
         >
-          <Typography
-            component="span"
-            className="font-semibold text-muted-black"
-          >
-            Deals rate:
-          </Typography>
+          <span className="font-semibold text-[#111111]">Deals rate:</span>
           <ListItemText
             primary={details?.rate}
             className="font-normal text-[#666]"

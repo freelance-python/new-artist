@@ -1,5 +1,6 @@
 import { useCallback } from "react";
 import propTypes from "prop-types";
+import { IoEyeOutline } from "react-icons/io5";
 
 const RegisterCustomer = ({ handleModalType }) => {
   const toggleLoginPage = useCallback(() => {
@@ -34,14 +35,7 @@ const RegisterCustomer = ({ handleModalType }) => {
           <label htmlFor="text" className="InputLabelAuthPage">
             Name
           </label>
-          <input
-            id="text"
-            name="text"
-            type="text"
-            className="flex w-full items-center px-4 text-sm text-heading transition duration-300 ease-in-out border border-border-base rounded h-12"
-            autoComplete="off"
-            spellCheck="false"
-          />
+          <input id="text" type="text" className="InputContactFormHome h-12" />
         </div>
         <div className="mb-5">
           <label htmlFor="email" className="InputLabelAuthPage">
@@ -49,55 +43,27 @@ const RegisterCustomer = ({ handleModalType }) => {
           </label>
           <input
             id="email"
-            name="email"
             type="email"
-            className="flex w-full items-center px-4 text-sm text-heading transition duration-300 ease-in-out border border-border-base rounded h-12"
-            autoComplete="off"
-            spellCheck="false"
+            className="InputContactFormHome h-12"
           />
         </div>
         <div className="mb-5">
           <div className="mb-2 flex items-center justify-between">
-            <label
-              htmlFor="password"
-              className="text-sm font-semibold text-[#6c757d]"
-            >
+            <label htmlFor="password" className="InputLabelAuthPage">
               Password
             </label>
           </div>
           <div className="relative">
             <input
               id="password"
-              name="password"
               type="password"
-              className="w-full pl-3 rounded py-3 text-sm text-heading transition duration-300 ease-in-out border border-border-base"
-              autoComplete="off"
-              spellCheck="false"
+              className="InputContactFormHome h-12"
             />
             <label
               htmlFor="password"
               className="absolute top-5 -mt-2 right-2 cursor-pointer text-[#6c757d]"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                className="h-6 w-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                />
-              </svg>
+              <IoEyeOutline size={20} />
             </label>
           </div>
         </div>
