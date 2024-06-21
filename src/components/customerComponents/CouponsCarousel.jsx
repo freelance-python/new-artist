@@ -4,6 +4,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Box } from "@mui/material";
+import { FaChevronRight } from "react-icons/fa";
+import { FaChevronLeft } from "react-icons/fa";
 
 const CouponsCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -29,19 +31,7 @@ const CouponsCarousel = () => {
       }}
       onClick={onClick}
     >
-      <span className="sr-only">Next</span>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 512 512"
-        width="18px"
-        height="18px"
-      >
-        <path
-          d="M294.1 256L167 129c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.3 34 0L345 239c9.1 9.1 9.3 23.7.7 33.1L201.1 417c-4.7 4.7-10.9 7-17 7s-12.3-2.3-17-7c-9.4-9.4-9.4-24.6 0-33.9l127-127.1z"
-          fill="currentColor"
-          stroke="currentColor"
-        ></path>
-      </svg>
+      <FaChevronRight size={16} />
     </div>
   );
 
@@ -67,19 +57,7 @@ const CouponsCarousel = () => {
       }}
       onClick={onClick}
     >
-      <span className="sr-only">Previous</span>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 512 512"
-        width="18px"
-        height="18px"
-      >
-        <path
-          d="M217.9 256L345 383c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.3-34 0L167 273c-9.1-9.1-9.3-23.7-.7-33.1L310.9 95c4.7-4.7 10.9-7 17-7s12.3 2.3 17 7c9.4 9.4 9.4 24.6 0 33.9l-127 127.1z"
-          fill="currentColor"
-          stroke="currentColor"
-        ></path>
-      </svg>
+      <FaChevronLeft size={16} />
     </div>
   );
 
@@ -162,7 +140,7 @@ const CouponsCarousel = () => {
     height: "auto",
   };
   return (
-    <Box className="border-t border-border-200 bg-light px-5 py-5 md:p-8 lg:px-6">
+    <Box className="border-t border-border-200 bg-[#fff] px-5 py-5 md:p-8 lg:px-6">
       <style>{styles}</style>
       <Slider {...settings}>
         {images.map((image, index) => (

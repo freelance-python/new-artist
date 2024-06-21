@@ -1,5 +1,6 @@
 import { useCallback } from "react";
 import propTypes from "prop-types";
+import { FaChevronRight } from "react-icons/fa";
 
 const ForgotPassword = ({ handleModalType }) => {
   const toggleLoginPage = useCallback(() => {
@@ -20,44 +21,26 @@ const ForgotPassword = ({ handleModalType }) => {
         </a>
       </div>
       <p className="mt-4 mb-8 text-sm text-center text-[#6c757d] sm:mt-5 sm:mb-10 md:text-base">
-        Login with your mobile number. We&apos;ll send you a code to the given
-        mobile number to login into your account
+        We&apos;ll send you a link to reset your password
       </p>
       <form>
         <div className="mb-5">
-          <label
-            htmlFor="email"
-            className="InputLabelAuthPage"
-          >
+          <label htmlFor="email" className="InputLabelAuthPage">
             Email
           </label>
           <input
             id="email"
-            name="email"
             type="email"
-            className="w-full px-4 text-sm text-heading transition duration-300 ease-in-out border border-border-base rounded h-12"
-            autoComplete="off"
-            spellCheck="false"
+            className="InputContactFormHome h-12"
           />
         </div>
         <div className="mt-8">
           <button
             type="submit"
-            className="inline-flex items-center justify-center shrink-0 font-semibold leading-none rounded outline-none transition duration-300 ease-in-out text-[#fff] bg-[#009f7f] hover:bg-[#019376] px-5 py-0 h-12 w-full sm:h-12"
+            className="inline-flex gap-1 items-center justify-center shrink-0 font-semibold leading-none rounded outline-none transition duration-300 ease-in-out text-[#fff] bg-[#009f7f] hover:bg-[#019376] px-5 py-0 h-12 w-full sm:h-12"
           >
             Submit Email
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512"
-              width="20"
-              className="w-5"
-            >
-              <path
-                d="M294.1 256L167 129c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.3 34 0L345 239c9.1 9.1 9.3 23.7.7 33.1L201.1 417c-4.7 4.7-10.9 7-17 7s-12.3-2.3-17-7c-9.4-9.4-9.4-24.6 0-33.9l127-127.1z"
-                fill="currentColor"
-                stroke="currentColor"
-              ></path>
-            </svg>
+            <FaChevronRight />
           </button>
         </div>
       </form>

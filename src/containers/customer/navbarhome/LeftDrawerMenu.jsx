@@ -10,7 +10,6 @@ const links = [
   { url: "/offers", label: "Offers" },
   { url: "/contact", label: "Contact" },
   { url: "/flash-sales", label: "Flash Sale" },
-  { url: "/manufacturers", label: "Manufacturers/Publishers" },
   { url: "/authors", label: "Authors" },
   { url: "/help", label: "FAQ" },
   { url: "/terms", label: "Terms & Conditions" },
@@ -79,6 +78,7 @@ export default function LeftDrawerMenu({ topNav }) {
               <li key={index}>
                 <Link
                   to={link.url}
+                  onClick={closeDrawer}
                   className="flex items-center px-5 py-3 transition duration-200 cursor-pointer LinkTextColorHover md:px-6"
                 >
                   {link.label}

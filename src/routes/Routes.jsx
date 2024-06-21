@@ -5,6 +5,7 @@ import Layout, { FooterLayout } from "../components/navbar/Layout";
 import OffersHome from "../containers/customer/OffersHome";
 import FlashSalesHome from "../containers/customer/FlashSalesHome";
 import ContactHome from "../containers/customer/ContactHome";
+import ShopsHome from "../containers/customer/ShopsHome";
 
 const AppRoutes = () => {
   return (
@@ -19,6 +20,7 @@ const AppRoutes = () => {
           <Route path="/home" element={<Homepage />} />
 
           <Route element={<FooterLayout />}>
+            <Route path="/shops" element={<ShopsHome />} />
             <Route path="/offers" element={<OffersHome />} />
             <Route path="/contact" element={<ContactHome />} />
             <Route path="/flash-sales" element={<FlashSalesHome />} />

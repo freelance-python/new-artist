@@ -11,6 +11,9 @@ import { RiShoppingBag2Line } from "react-icons/ri";
 import { IoHomeOutline } from "react-icons/io5";
 import { IoSearch } from "react-icons/io5";
 import { FaRegUser } from "react-icons/fa";
+import { FaChevronDown } from "react-icons/fa";
+import { GoSearch } from "react-icons/go";
+import { IoMdClose } from "react-icons/io";
 
 function HomeNav() {
   const usePathname1 = useLocation();
@@ -104,18 +107,7 @@ function HomeNav() {
                 <span className="text-brand-dark relative inline-flex items-center py-2 font-normal rtl:left-0">
                   Pages
                 </span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 12 7.2"
-                  width="12"
-                  height="7.2"
-                  className="mt-1"
-                >
-                  <path
-                    d="M6.002 5.03L10.539.265a.826.826 0 011.211 0 .94.94 0 010 1.275l-5.141 5.4a.827.827 0 01-1.183.026L.249 1.545a.937.937 0 010-1.275.826.826 0 011.211 0z"
-                    className="icon"
-                  ></path>
-                </svg>
+                <FaChevronDown />
                 <PagesDropdown className="group-hover/dropdown:flex hidden" />
               </Box>
             </div>
@@ -125,13 +117,7 @@ function HomeNav() {
                 className="justify-center shrink-0 font-semibold leading-none outline-none transition duration-300 ease-in-out px-5 py-0 hidden h-[38px] w-[38px] items-center  gap-2 rounded-full border border-border-200 bg-light !p-1 text-sm md:text-base lg:!flex"
                 onClick={toggleSearchbarVisibility}
               >
-                <svg viewBox="0 0 17.048 18" className="h-4 w-4">
-                  <path
-                    d="M380.321,383.992l3.225,3.218c.167.167.341.329.5.506a.894.894,0,1,1-1.286,1.238c-1.087-1.067-2.179-2.131-3.227-3.236a.924.924,0,0,0-1.325-.222,7.509,7.509,0,1,1-3.3-14.207,7.532,7.532,0,0,1,6,11.936C380.736,383.462,380.552,383.685,380.321,383.992Zm-5.537.521a5.707,5.707,0,1,0-5.675-5.72A5.675,5.675,0,0,0,374.784,384.513Z"
-                    transform="translate(-367.297 -371.285)"
-                    fill="currentColor"
-                  ></path>
-                </svg>
+                <GoSearch />
               </button>
             )}
 
@@ -183,16 +169,7 @@ function HomeNav() {
                   Search your products from here
                 </label>
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                  <svg
-                    viewBox="0 0 17.048 18"
-                    className="h-4 w-4 text-gray-500"
-                  >
-                    <path
-                      d="M380.321,383.992l3.225,3.218c.167.167.341.329.5.506a.894.894,0,1,1-1.286,1.238c-1.087-1.067-2.179-2.131-3.227-3.236a.924.924,0,0,0-1.325-.222,7.509,7.509,0,1,1-3.3-14.207,7.532,7.532,0,0,1,6,11.936C380.736,383.462,380.552,383.685,380.321,383.992Zm-5.537.521a5.707,5.707,0,1,0-5.675-5.72A5.675,5.675,0,0,0,374.784,384.513Z"
-                      transform="translate(-367.297 -371.285)"
-                      fill="currentColor"
-                    ></path>
-                  </svg>
+                  <GoSearch />
                 </div>
                 <input
                   id="grocery-search-header"
@@ -213,14 +190,7 @@ function HomeNav() {
               onClick={toggleSearchbarVisibility}
               className="items-center justify-center shrink-0 font-semibold leading-none rounded outline-none transition duration-300 ease-in-out px-5 py-0 h-12 hidden border border-green-400 bg-gray-100 text-[#009f7f] lg:inline-flex"
             >
-              <svg
-                className="h-5 w-5"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"></path>
-              </svg>
+              <IoMdClose />
             </button>
           </div>
         )}
