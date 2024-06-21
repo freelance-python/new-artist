@@ -6,6 +6,7 @@ import OffersHome from "../containers/customer/OffersHome";
 import FlashSalesHome from "../containers/customer/FlashSalesHome";
 import ContactHome from "../containers/customer/ContactHome";
 import ShopsHome from "../containers/customer/ShopsHome";
+import AuthorsHome from "../containers/customer/AuthorsHome";
 
 const AppRoutes = () => {
   return (
@@ -24,6 +25,7 @@ const AppRoutes = () => {
             <Route path="/offers" element={<OffersHome />} />
             <Route path="/contact" element={<ContactHome />} />
             <Route path="/flash-sales" element={<FlashSalesHome />} />
+            <Route path="/authors" element={<AuthorsHome />} />
           </Route>
         </Route>
         {/* user routes end */}
