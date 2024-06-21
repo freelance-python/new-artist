@@ -4,6 +4,7 @@ import Vendor from "../containers/vendor/Vendor";
 import Layout, { FooterLayout } from "../components/navbar/Layout";
 import OffersHome from "../containers/customer/OffersHome";
 import FlashSalesHome from "../containers/customer/FlashSalesHome";
+import ContactHome from "../containers/customer/ContactHome";
 
 const AppRoutes = () => {
   return (
@@ -19,9 +20,9 @@ const AppRoutes = () => {
 
           <Route element={<FooterLayout />}>
             <Route path="/offers" element={<OffersHome />} />
+            <Route path="/contact" element={<ContactHome />} />
             <Route path="/flash-sales" element={<FlashSalesHome />} />
           </Route>
-          
         </Route>
         {/* user routes end */}
 
