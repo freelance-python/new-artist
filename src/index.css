@@ -280,3 +280,43 @@ button.HideTopLeftDrawerMenu {
 .SubmitBtnContactFormHome:hover {
   background-color: #019376;
 }
+/*****************************Profile Form***************************************/
+.input-group-box-profile-form {
+  display: flex;
+  align-items: center;
+}
+
+.input-profile-form {
+  width: 100%;
+  padding: 0 1rem;
+  border: 1px solid #cacaca;
+  border-radius: 6px 0 0 6px;
+  font-size: 18px;
+  background-color: white;
+}
+
+.button-submit-profile-form {
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 0 6px 6px 0;
+  background-color: #009f7f;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.button-submit-profile-form:hover {
+  background-color: #009f7f;
+}
+
+.input-profile-form:focus {
+  border: 1px solid #009f7f;
+  border-radius: 6px 0 0 6px;
+}
+
+.input-profile-form:focus,
+.input-profile-form:focus-visible {
+  border-color: #009f7f;
+  outline: none;
+}

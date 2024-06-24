@@ -10,7 +10,7 @@ const ProfileDropdown = () => {
             <span>0</span>
           </div>
           {[
-            { text: "Profile", href: "/authors" },
+            { text: "Profile", href: "/profile" },
             { text: "My Orders", href: "/orders" },
             { text: "My Wishlists", href: "/wishlists" },
             { text: "Checkout", href: "/checkout" },

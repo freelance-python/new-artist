@@ -11,6 +11,7 @@ import HelpHome from "../containers/customer/HelpHome";
 import TermsHome from "../containers/customer/TermsHome";
 import CustomerRefundHome from "../containers/customer/CustomerRefundHome";
 import VendorRefundHome from "../containers/customer/VendorRefundHome";
+import ProfileHome from "../containers/customer/ProfileHome";
 
 const AppRoutes = () => {
   return (
@@ -23,7 +24,7 @@ const AppRoutes = () => {
         <Route element={<Layout />}>
           <Route path="/" element={<Homepage />} />
           <Route path="/home" element={<Homepage />} />
-
+          <Route path="/profile" element={<ProfileHome />} />
           <Route element={<FooterLayout />}>
             <Route path="/shops" element={<ShopsHome />} />
             <Route path="/offers" element={<OffersHome />} />
@@ -33,8 +34,14 @@ const AppRoutes = () => {
             <Route path="/authors" element={<AuthorsHome />} />
             <Route path="/help" element={<HelpHome />} />
             <Route path="/terms" element={<TermsHome />} />
-            <Route path="/customer-refund-policies" element={<CustomerRefundHome />} />
-            <Route path="/vendor-refund-policies" element={<VendorRefundHome />} />
+            <Route
+              path="/customer-refund-policies"
+              element={<CustomerRefundHome />}
+            />
+            <Route
+              path="/vendor-refund-policies"
+              element={<VendorRefundHome />}
+            />
           </Route>
         </Route>
         {/* user routes end */}
