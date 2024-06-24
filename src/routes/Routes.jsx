@@ -8,6 +8,9 @@ import ContactHome from "../containers/customer/ContactHome";
 import ShopsHome from "../containers/customer/ShopsHome";
 import AuthorsHome from "../containers/customer/AuthorsHome";
 import HelpHome from "../containers/customer/HelpHome";
+import TermsHome from "../containers/customer/TermsHome";
+import CustomerRefundHome from "../containers/customer/CustomerRefundHome";
+import VendorRefundHome from "../containers/customer/VendorRefundHome";
 
 const AppRoutes = () => {
   return (
@@ -29,6 +32,9 @@ const AppRoutes = () => {
             <Route path="/flash-sales" element={<FlashSalesHome />} />
             <Route path="/authors" element={<AuthorsHome />} />
             <Route path="/help" element={<HelpHome />} />
+            <Route path="/terms" element={<TermsHome />} />
+            <Route path="/customer-refund-policies" element={<CustomerRefundHome />} />
+            <Route path="/vendor-refund-policies" element={<VendorRefundHome />} />
           </Route>
         </Route>
         {/* user routes end */}
