@@ -1,5 +1,5 @@
 import { Container, Box, ListItem, Link } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const termsData = [
   {
@@ -56,7 +56,28 @@ const termsData = [
 
 const TermsAndConditions = () => {
   const [selectedSection, setSelectedSection] = useState(termsData[0].title);
+  const handleScroll = () => {
+    const scrollPosition = window.scrollY;
 
+    termsData.forEach((section) => {
+      const sectionElement = document.getElementById(section.title);
+      if (sectionElement) {
+        const { offsetTop, offsetHeight } = sectionElement;
+        const sectionTop = offsetTop - 100;
+        const sectionBottom = sectionTop + offsetHeight;
+        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+          setSelectedSection(section.title);
+        }
+      }
+    });
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <Container maxWidth="lg" className="mx-auto px-4 py-10">
       <Box className="flex flex-col md:flex-row">
