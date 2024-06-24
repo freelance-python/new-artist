@@ -1,4 +1,5 @@
 import AuthorsCard from "./AuthorsCard";
+import { IoSearchOutline } from "react-icons/io5";
 
 const AuthorsContainer = () => {
   const authors = [
@@ -61,29 +62,23 @@ const AuthorsContainer = () => {
   return (
     <div className="min-h-screen px-5 pt-10 pb-16 mx-auto max-w-1920 xl:py-14 xl:px-16">
       <div className="flex flex-col items-center">
-        <h1 className="mb-4 text-2xl font-bold sm:text-3xl lg:text-4xl text-accent">
+        <h1 className="mb-4 text-2xl font-bold sm:text-3xl lg:text-4xl text-[#009f7f]">
           Search Our beloved authors
         </h1>
-        <p className="text-base text-heading text-center">
+        <p className="text-base text-[#1f2937] text-center">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </p>
         <div className="w-full max-w-screen-md mt-12">
           <form className="w-full">
             <div className="relative flex rounded md:rounded-lg h-11 md:h-12">
-              <label htmlFor="search" className="sr-only">
-                Search
-              </label>
               <input
                 id="search"
-                type="text"
-                autoComplete="off"
-                className="search item-center flex h-full w-full appearance-none overflow-hidden truncate rounded-lg text-sm text-heading placeholder-gray-500 transition duration-300 ease-in-out focus:outline-0 focus:ring-0 search-minimal bg-gray-100 pl-10 pr-4 border border-transparent focus:border-accent focus:bg-light"
-                name="search"
+                className="item-center flex h-full w-full appearance-none overflow-hidden truncate rounded-lg text-sm text-heading placeholder-gray-500 transition duration-300 ease-in-out focus:outline-0 focus:ring-0 search-minimal bg-gray-100 pl-14 pr-4 border border-transparent focus:border-[#009f7f] focus:bg-[#fff]"
                 placeholder="Search your favorite author from here"
                 value=""
               />
-              <button className="absolute flex h-full w-10 items-center justify-center text-body transition-colors duration-200 hover:text-accent-hover focus:text-accent-hover focus:outline-0 left-0 md:w-14">
-                <span className="sr-only">Search</span>
+              <button className="absolute flex h-full w-10 items-center justify-center text-body transition-colors duration-200 hover:text-[#019376] focus:text-[#019376] focus:outline-0 left-0 md:w-14">
+                <IoSearchOutline />
               </button>
             </div>
           </form>
