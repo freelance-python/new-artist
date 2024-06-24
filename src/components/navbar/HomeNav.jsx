@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import PagesDropdown from "../customerComponents/PagesDropdown";
 import LeftDrawerMenu from "../../containers/customer/navbarhome/LeftDrawerMenu";
-import { Box, Dialog } from "@mui/material";
+import { Avatar, Box, ClickAwayListener, Dialog } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
 import MobileLoginCustomer from "../customerComponents/auth/MobileLoginCustomer";
 import LoginCustomer from "../customerComponents/auth/LoginCustomer";
@@ -14,6 +14,7 @@ import { FaRegUser } from "react-icons/fa";
 import { FaChevronDown } from "react-icons/fa";
 import { GoSearch } from "react-icons/go";
 import { IoMdClose } from "react-icons/io";
+import ProfileDropdown from "../customerComponents/ProfileDropdown";
 
 function HomeNav() {
   const usePathname1 = useLocation();
@@ -21,6 +22,15 @@ function HomeNav() {
   const [showSearchIcon, setShowSearchIcon] = useState(false);
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [open, setLoginOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const closeDropdown = () => {
+    setDropdownOpen(false);
+  };
+
+  const toggleDropdown = () => {
+    setDropdownOpen((prev) => !prev);
+  };
   const handleLoginOpen = (type = "login") => {
     setLoginOpen(type);
   };
@@ -47,6 +57,7 @@ function HomeNav() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   const style = {
     position: "relative",
     border: "none",
@@ -110,6 +121,15 @@ function HomeNav() {
                 <FaChevronDown />
                 <PagesDropdown className="group-hover/dropdown:flex hidden" />
               </Box>
+              <ClickAwayListener onClickAway={closeDropdown}>
+                <Box
+                  onClick={toggleDropdown}
+                  className="cursor-pointer relative"
+                >
+                  <Avatar src="/broken-image.jpg" />
+                  {dropdownOpen && <ProfileDropdown />}
+                </Box>
+              </ClickAwayListener>
             </div>
             {showSearchIcon && (
               <button
