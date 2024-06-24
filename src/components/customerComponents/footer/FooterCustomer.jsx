@@ -7,7 +7,7 @@ import SubscribeFormFooter from "./SubscribeFormFooter";
 
 const FooterCustomer = () => {
   return (
-    <div className="bg-[#fff] px-5 md:px-10 lg:px-[50px] xl:px-16">
+    <div className="bg-[#fff] px-5 md:px-10 lg:px-[50px] xl:px-16 border-t border-gray-800 border-t-[#f3f4f6] lg:border-b-8">
       <Grid
         container
         spacing={6}

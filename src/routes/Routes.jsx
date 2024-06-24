@@ -7,6 +7,7 @@ import FlashSalesHome from "../containers/customer/FlashSalesHome";
 import ContactHome from "../containers/customer/ContactHome";
 import ShopsHome from "../containers/customer/ShopsHome";
 import AuthorsHome from "../containers/customer/AuthorsHome";
+import HelpHome from "../containers/customer/HelpHome";
 
 const AppRoutes = () => {
   return (
@@ -24,8 +25,10 @@ const AppRoutes = () => {
             <Route path="/shops" element={<ShopsHome />} />
             <Route path="/offers" element={<OffersHome />} />
             <Route path="/contact" element={<ContactHome />} />
+            {/*Pages Routes */}
             <Route path="/flash-sales" element={<FlashSalesHome />} />
             <Route path="/authors" element={<AuthorsHome />} />
+            <Route path="/help" element={<HelpHome />} />
           </Route>
         </Route>
         {/* user routes end */}
