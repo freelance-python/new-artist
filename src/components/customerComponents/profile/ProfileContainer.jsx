@@ -86,8 +86,8 @@ function CustomTab({ tab, isSelected, onClick }) {
       <a
         className={`block border-l-4 py-2 px-10 font-semibold text-[#333333] transition-colors ${
           isSelected
-            ? 'border-[#009f7f] text-[#009f7f]'
-            : 'border-transparent hover:text-[#009f7f] focus:text-[#009f7f]'
+            ? "border-[#009f7f] text-[#009f7f]"
+            : "border-transparent hover:text-[#009f7f] focus:text-[#009f7f]"
         }`}
         onClick={() => onClick(tab.url)}
       >
@@ -124,6 +124,13 @@ const ProfileContainer = () => {
                 onClick={handleTabClick}
               />
             ))}
+          </ul>
+          <ul className="border-t border-border-200 bg-light py-4">
+            <li className="block py-2 px-11">
+              <button className="font-semibold text-[#333333] transition-colors hover:text-[#009f7f] focus:text-[#009f7f]">
+                Logout
+              </button>
+            </li>
           </ul>
         </div>
       </div>
