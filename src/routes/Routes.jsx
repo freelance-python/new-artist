@@ -24,7 +24,6 @@ const AppRoutes = () => {
         <Route element={<Layout />}>
           <Route path="/" element={<Homepage />} />
           <Route path="/home" element={<Homepage />} />
-          <Route path="/profile" element={<ProfileHome />} />
           <Route element={<FooterLayout />}>
             <Route path="/shops" element={<ShopsHome />} />
             <Route path="/offers" element={<OffersHome />} />
@@ -42,6 +41,7 @@ const AppRoutes = () => {
               path="/vendor-refund-policies"
               element={<VendorRefundHome />}
             />
+            <Route path="/:tabView" element={<ProfileHome />} />
           </Route>
         </Route>
         {/* user routes end */}
