@@ -347,7 +347,7 @@ const ItemsListHome = ({ hideProductOfIndex = -1 }) => {
                   </div>
                 </div>
                 <CardContent>
-                  <h3 className="mb-2 text-sm font-semibold truncate text-heading">
+                  <h3 className="mb-2 text-sm font-semibold truncate text-[#1f2937]">
                     {product.title}
                   </h3>
                   <p className="text-xs text-[#6c757d]">{product.weight}</p>

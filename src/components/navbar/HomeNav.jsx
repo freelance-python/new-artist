@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import PagesDropdown from "../customerComponents/PagesDropdown";
 import LeftDrawerMenu from "../../containers/customer/navbarhome/LeftDrawerMenu";
-import { Box, Dialog } from "@mui/material";
+import { Avatar, Box, ClickAwayListener, Dialog } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
 import MobileLoginCustomer from "../customerComponents/auth/MobileLoginCustomer";
 import LoginCustomer from "../customerComponents/auth/LoginCustomer";
@@ -14,6 +14,7 @@ import { FaRegUser } from "react-icons/fa";
 import { FaChevronDown } from "react-icons/fa";
 import { GoSearch } from "react-icons/go";
 import { IoMdClose } from "react-icons/io";
+import ProfileDropdown from "../customerComponents/ProfileDropdown";
 
 function HomeNav() {
   const usePathname1 = useLocation();
@@ -21,6 +22,15 @@ function HomeNav() {
   const [showSearchIcon, setShowSearchIcon] = useState(false);
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [open, setLoginOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const closeDropdown = () => {
+    setDropdownOpen(false);
+  };
+
+  const toggleDropdown = () => {
+    setDropdownOpen((prev) => !prev);
+  };
   const handleLoginOpen = (type = "login") => {
     setLoginOpen(type);
   };
@@ -47,6 +57,7 @@ function HomeNav() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   const style = {
     position: "relative",
     border: "none",
@@ -110,6 +121,15 @@ function HomeNav() {
                 <FaChevronDown />
                 <PagesDropdown className="group-hover/dropdown:flex hidden" />
               </Box>
+              <ClickAwayListener onClickAway={closeDropdown}>
+                <Box
+                  onClick={toggleDropdown}
+                  className="cursor-pointer relative"
+                >
+                  <Avatar src="/broken-image.jpg" />
+                  {dropdownOpen && <ProfileDropdown />}
+                </Box>
+              </ClickAwayListener>
             </div>
             {showSearchIcon && (
               <button
@@ -175,13 +195,13 @@ function HomeNav() {
                   id="grocery-search-header"
                   type="text"
                   autoComplete="off"
-                  className="search item-center flex h-full w-full appearance-none overflow-hidden truncate rounded-lg text-sm text-heading placeholder-gray-500 transition duration-300 ease-in-out focus:outline-0 lg:border-green-400 search-minimal bg-gray-100 pl-10 pr-4 md:pl-14 md:pr-14 border border-transparent focus:bg-[#fff]"
+                  className="search item-center flex h-full w-full appearance-none overflow-hidden truncate rounded-lg text-sm text-[#1f2937] placeholder-gray-500 transition duration-300 ease-in-out focus:outline-0 lg:border-green-400 search-minimal bg-gray-100 pl-10 pr-4 md:pl-14 md:pr-14 border border-transparent focus:bg-[#fff]"
                   name="search"
                   placeholder="Search your products from here"
                 />
                 <button
                   type="submit"
-                  className="absolute flex h-full w-10 items-center justify-center text-body transition-colors duration-200 hover:text-accent-hover focus:text-accent-hover focus:outline-0 left-0 md:w-14"
+                  className="absolute flex h-full w-10 items-center justify-center text-[#6b7280] transition-colors duration-200 hover:text-accent-hover focus:text-accent-hover focus:outline-0 left-0 md:w-14"
                 ></button>
               </div>
             </form>

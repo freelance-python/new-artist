@@ -38,10 +38,10 @@ const HeroSectionHomePage = () => {
         src="../../../src/assets/BgHeroSectionHomepage.webp"
       />
       <ContentContainer>
-        <h1 className="text-2xl font-bold tracking-tight text-heading lg:text-4xl xl:text-5xl">
+        <h1 className="text-2xl font-bold tracking-tight text-[#1f2937] lg:text-4xl xl:text-5xl">
           Groceries Delivered in 90 Minutes
         </h1>
-        <p className="text-sm text-heading lg:text-base xl:text-lg">
+        <p className="text-sm text-[#1f2937] lg:text-base xl:text-lg">
           Get your healthy foods & snacks delivered at your doorsteps all day
           everyday
         </p>

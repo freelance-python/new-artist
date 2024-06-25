@@ -3,7 +3,7 @@ import { Link } from "@mui/material";
 const InformationFooter = () => {
   return (
     <div style={{ marginBottom: "1rem" }}>
-      <h2 className="mt-3 mb-4 font-semibold text-heading lg:mb-7">
+      <h2 className="mt-3 mb-4 font-semibold text-[#1f2937] lg:mb-7">
         Our Information
       </h2>
       <div className="flex flex-col gap-4">

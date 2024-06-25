@@ -80,7 +80,7 @@ const LoginCustomer = ({ handleModalType }) => {
           </button>
         </div>
       </form>
-      <div className="relative flex flex-col items-center justify-center mt-8 mb-6 text-sm text-heading sm:mt-11 sm:mb-8">
+      <div className="relative flex flex-col items-center justify-center mt-8 mb-6 text-sm text-[#1f2937] sm:mt-11 sm:mb-8">
         <hr className="w-full" />
         <span className="absolute -top-2.5 bg-[#fff] px-2">Or</span>
       </div>
@@ -97,7 +97,7 @@ const LoginCustomer = ({ handleModalType }) => {
           Login with Mobile number
         </button>
       </div>
-      <div className="relative flex flex-col items-center justify-center mt-8 mb-6 text-sm text-heading sm:mt-11 sm:mb-8">
+      <div className="relative flex flex-col items-center justify-center mt-8 mb-6 text-sm text-[#1f2937] sm:mt-11 sm:mb-8">
         <hr className="w-full" />
       </div>
       <div className="text-sm text-center text-[#6c757d] sm:text-base">
