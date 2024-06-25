@@ -1,4 +1,4 @@
-import ProfileSection from "./ProfileSection";
+import ProfileSection from "./profile-section/ProfileSection";
 import { Box } from "@mui/material";
 import PropTypes from "prop-types";
 import { useNavigate, useParams } from "react-router-dom";
