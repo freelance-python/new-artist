@@ -36,11 +36,11 @@ export default function RightCartItems() {
         <div className="flex items-center justify-between">
           <div className="flex">
             <div className="flex-shrink-0">
-              <div className="flex overflow-hidden flex-col-reverse items-center w-8 h-24 bg-gray-100 text-heading rounded-full">
+              <div className="flex overflow-hidden flex-col-reverse items-center w-8 h-24 bg-gray-100 text-[#1f2937] rounded-full">
                 <button className="cursor-pointer p-2 transition-colors duration-200 hover:bg-accent-hover focus:outline-0 hover:!bg-gray-100">
                   <FiMinus />
                 </button>
-                <div className="flex flex-1 items-center justify-center px-3 text-sm font-semibold text-heading">
+                <div className="flex flex-1 items-center justify-center px-3 text-sm font-semibold text-[#1f2937]">
                   1
                 </div>
                 <button className="cursor-pointer p-2 transition-colors duration-200 hover:bg-accent-hover focus:outline-0 hover:!bg-gray-100">
@@ -56,13 +56,13 @@ export default function RightCartItems() {
               />
             </div>
             <div>
-              <h3 className="font-bold text-heading">Apples </h3>
+              <h3 className="font-bold text-[#1f2937]">Apples </h3>
               <p className="my-2.5 font-semibold text-accent">$1.60</p>
               <span className="text-xs text-body">1 X 1lb</span>
             </div>
           </div>
           <div className="flex justify-center items-center gap-3">
-            <span className="font-bold text-heading ltr:ml-auto rtl:mr-auto">
+            <span className="font-bold text-[#1f2937] ltr:ml-auto rtl:mr-auto">
               $0.60
             </span>
             <button className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-muted transition-all duration-200 hover:bg-gray-100 hover:text-red-600 focus:bg-gray-100 focus:text-red-600 focus:outline-0">
@@ -75,11 +75,11 @@ export default function RightCartItems() {
         <div className="flex items-center justify-between">
           <div className="flex">
             <div className="flex-shrink-0">
-              <div className="flex overflow-hidden flex-col-reverse items-center w-8 h-24 bg-gray-100 text-heading rounded-full">
+              <div className="flex overflow-hidden flex-col-reverse items-center w-8 h-24 bg-gray-100 text-[#1f2937] rounded-full">
                 <button className="cursor-pointer p-2 transition-colors duration-200 hover:bg-accent-hover focus:outline-0 hover:!bg-gray-100">
                   <FiMinus />
                 </button>
-                <div className="flex flex-1 items-center justify-center px-3 text-sm font-semibold text-heading">
+                <div className="flex flex-1 items-center justify-center px-3 text-sm font-semibold text-[#1f2937]">
                   1
                 </div>
                 <button className="cursor-pointer p-2 transition-colors duration-200 hover:bg-accent-hover focus:outline-0 hover:!bg-gray-100">
@@ -95,13 +95,13 @@ export default function RightCartItems() {
               />
             </div>
             <div>
-              <h3 className="font-bold text-heading">Baby Spinach</h3>
+              <h3 className="font-bold text-[#1f2937]">Baby Spinach</h3>
               <p className="my-2.5 font-semibold text-accent">$0.60</p>
               <span className="text-xs text-body">1 X 2Pfund</span>
             </div>
           </div>
           <div className="flex justify-center items-center gap-3">
-            <span className="font-bold text-heading ltr:ml-auto rtl:mr-auto">
+            <span className="font-bold text-[#1f2937] ltr:ml-auto rtl:mr-auto">
               $0.60
             </span>
             <button className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-muted transition-all duration-200 hover:bg-gray-100 hover:text-red-600 focus:bg-gray-100 focus:text-red-600 focus:outline-0">

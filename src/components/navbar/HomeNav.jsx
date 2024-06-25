@@ -195,13 +195,13 @@ function HomeNav() {
                   id="grocery-search-header"
                   type="text"
                   autoComplete="off"
-                  className="search item-center flex h-full w-full appearance-none overflow-hidden truncate rounded-lg text-sm text-heading placeholder-gray-500 transition duration-300 ease-in-out focus:outline-0 lg:border-green-400 search-minimal bg-gray-100 pl-10 pr-4 md:pl-14 md:pr-14 border border-transparent focus:bg-[#fff]"
+                  className="search item-center flex h-full w-full appearance-none overflow-hidden truncate rounded-lg text-sm text-[#1f2937] placeholder-gray-500 transition duration-300 ease-in-out focus:outline-0 lg:border-green-400 search-minimal bg-gray-100 pl-10 pr-4 md:pl-14 md:pr-14 border border-transparent focus:bg-[#fff]"
                   name="search"
                   placeholder="Search your products from here"
                 />
                 <button
                   type="submit"
-                  className="absolute flex h-full w-10 items-center justify-center text-body transition-colors duration-200 hover:text-accent-hover focus:text-accent-hover focus:outline-0 left-0 md:w-14"
+                  className="absolute flex h-full w-10 items-center justify-center text-[#6b7280] transition-colors duration-200 hover:text-accent-hover focus:text-accent-hover focus:outline-0 left-0 md:w-14"
                 ></button>
               </div>
             </form>

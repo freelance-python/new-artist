@@ -10,7 +10,7 @@ const SubscribeFormFooter = () => {
   };
   return (
     <div className="w-full flex flex-col mb-7">
-      <h2 className="mt-3 mb-4 font-semibold text-heading lg:mb-7">
+      <h2 className="mt-3 mb-4 font-semibold text-[#1f2937] lg:mb-7">
         Subscribe Now
       </h2>
       <p className="text-[#1f2937] text-[14px] mb-7">

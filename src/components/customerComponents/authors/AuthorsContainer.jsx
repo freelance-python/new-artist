@@ -73,11 +73,11 @@ const AuthorsContainer = () => {
             <div className="relative flex rounded md:rounded-lg h-11 md:h-12">
               <input
                 id="search"
-                className="item-center flex h-full w-full appearance-none overflow-hidden truncate rounded-lg text-sm text-heading placeholder-gray-500 transition duration-300 ease-in-out focus:outline-0 focus:ring-0 search-minimal bg-gray-100 pl-14 pr-4 border border-transparent focus:border-[#009f7f] focus:bg-[#fff]"
+                className="item-center flex h-full w-full appearance-none overflow-hidden truncate rounded-lg text-sm text-[#1f2937] placeholder-gray-500 transition duration-300 ease-in-out focus:outline-0 focus:ring-0 search-minimal bg-gray-100 pl-14 pr-4 border border-transparent focus:border-[#009f7f] focus:bg-[#fff]"
                 placeholder="Search your favorite author from here"
                 value=""
               />
-              <button className="absolute flex h-full w-10 items-center justify-center text-body transition-colors duration-200 hover:text-[#019376] focus:text-[#019376] focus:outline-0 left-0 md:w-14">
+              <button className="absolute flex h-full w-10 items-center justify-center text-[#6b7280] transition-colors duration-200 hover:text-[#019376] focus:text-[#019376] focus:outline-0 left-0 md:w-14">
                 <IoSearchOutline />
               </button>
             </div>

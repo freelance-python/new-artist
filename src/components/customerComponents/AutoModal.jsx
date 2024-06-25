@@ -89,7 +89,7 @@ const AutoModal = () => {
                       id="email_subscribe"
                       name="email"
                       placeholder="Write your email here"
-                      className="h-14 w-full border-0 bg-transparent text-sm text-body outline-none pl-5"
+                      className="h-14 w-full border-0 bg-transparent text-sm text-[#6b7280] outline-none pl-5"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                     />

@@ -86,7 +86,7 @@ const ProductDetailsPage = ({
             </div>
             <div className="flex flex-col justify-center px-8">
               <h3
-                className="cursor-pointer truncate text-lg font-semibold tracking-tight text-heading transition-colors hover:text-[#009f7f] lg:text-xl"
+                className="cursor-pointer truncate text-lg font-semibold tracking-tight text-[#1f2937] transition-colors hover:text-[#009f7f] lg:text-xl"
                 title="Apples"
               >
                 {productData?.title}
@@ -123,7 +123,7 @@ const ProductDetailsPage = ({
               <div className="flex flex-col items-start p-5 pt-10 md:w-1/2 lg:p-14 xl:p-16">
                 <div className="w-full">
                   <div className="flex w-full items-start justify-between space-x-8 rtl:space-x-reverse">
-                    <h1 className="text-lg font-semibold tracking-tight text-heading md:text-xl xl:text-2xl cursor-pointer transition-colors hover:text-[#009f7f]">
+                    <h1 className="text-lg font-semibold tracking-tight text-[#1f2937] md:text-xl xl:text-2xl cursor-pointer transition-colors hover:text-[#009f7f]">
                       {productData?.title}
                     </h1>
                     <div>
@@ -177,20 +177,20 @@ const ProductDetailsPage = ({
                     </span>
                   </div>
                   <div className="mt-4 flex gap-6 w-full flex-row items-start border-t border-border-200 border-opacity-60 pt-4 md:mt-6 md:pt-6">
-                    <span className="py-1 text-sm font-semibold capitalize text-heading ">
+                    <span className="py-1 text-sm font-semibold capitalize text-[#1f2937] ">
                       Categories
                     </span>
                     <div className="flex gap-6 flex-row flex-wrap">
-                      <button className="mb-2 whitespace-nowrap rounded border border-border-200 bg-transparent py-1 px-2.5 text-sm lowercase tracking-wider text-heading transition-colors hover:border-[#009f7f] hover:text-[#009f7f] focus:bg-opacity-100 focus:outline-0 ltr:mr-2 rtl:ml-2">
+                      <button className="mb-2 whitespace-nowrap rounded border border-border-200 bg-transparent py-1 px-2.5 text-sm lowercase tracking-wider text-[#1f2937] transition-colors hover:border-[#009f7f] hover:text-[#009f7f] focus:bg-opacity-100 focus:outline-0 ltr:mr-2 rtl:ml-2">
                         Fruits & Vegetables
                       </button>
-                      <button className="mb-2 whitespace-nowrap rounded border border-border-200 bg-transparent py-1 px-2.5 text-sm lowercase tracking-wider text-heading transition-colors hover:border-[#009f7f] hover:text-[#009f7f] focus:bg-opacity-100 focus:outline-0 ltr:mr-2 rtl:ml-2">
+                      <button className="mb-2 whitespace-nowrap rounded border border-border-200 bg-transparent py-1 px-2.5 text-sm lowercase tracking-wider text-[#1f2937] transition-colors hover:border-[#009f7f] hover:text-[#009f7f] focus:bg-opacity-100 focus:outline-0 ltr:mr-2 rtl:ml-2">
                         Fruits
                       </button>
                     </div>
                   </div>
                   <div className="mt-2 flex items-center gap-6">
-                    <span className="py-1 text-sm font-semibold capitalize text-heading">
+                    <span className="py-1 text-sm font-semibold capitalize text-[#1f2937]">
                       Sellers
                     </span>
                     <button className="text-sm tracking-wider text-[#009f7f] underline transition hover:text-[#009f7f] hover:no-underline">
@@ -201,7 +201,7 @@ const ProductDetailsPage = ({
               </div>
             </div>
             <div className="border-b border-border-200 border-opacity-70 px-5 py-4 lg:px-16 lg:py-14">
-              <h2 className="mb-4 text-lg font-semibold tracking-tight text-heading md:mb-6">
+              <h2 className="mb-4 text-lg font-semibold tracking-tight text-[#1f2937] md:mb-6">
                 Details
               </h2>
               <p className="text-sm text-[#6b7280]">
@@ -213,7 +213,7 @@ const ProductDetailsPage = ({
             </div>
           </div>
           <div className="p-5 md:pb-10 lg:p-14 xl:p-16">
-            <h2 className="mb-6 text-lg font-semibold tracking-tight text-heading">
+            <h2 className="mb-6 text-lg font-semibold tracking-tight text-[#1f2937]">
               Related Products
             </h2>
             <ItemsListHome hideProductOfIndex={productData.index} />
