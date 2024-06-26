@@ -341,7 +341,6 @@ const ItemsListHome = ({ hideProductOfIndex = -1 }) => {
                     image={product.image}
                     alt={product.title}
                   />
-
                   <div className="absolute top-3 right-3 rounded-full bg-yellow-500 px-1.5 text-xs font-semibold leading-6 text-[#fff] sm:px-2 md:top-4 md:px-2.5">
                     {product.discountPercent}
                   </div>
