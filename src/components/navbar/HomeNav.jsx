@@ -126,7 +126,7 @@ function HomeNav() {
                   onClick={toggleDropdown}
                   className="cursor-pointer relative"
                 >
-                  <Avatar src="/broken-image.jpg" />
+                  <Avatar src="https://pickbazar-react-rest.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F2449%2Fconversions%2Fman-thumbnail.jpg&w=1920&q=75" />
                   {dropdownOpen && <ProfileDropdown />}
                 </Box>
               </ClickAwayListener>

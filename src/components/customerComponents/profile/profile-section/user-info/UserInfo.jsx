@@ -75,10 +75,11 @@ const UserInfo = () => {
                 <input
                   id="name"
                   type="text"
+                  value={"John Doe"}
                   className="InputContactFormHome h-12"
                 />
               </div>
-            </div>
+            </div>x
             <div className="mb-6">
               <label
                 htmlFor="profile.bio"
@@ -88,7 +89,7 @@ const UserInfo = () => {
               </label>
               <textarea
                 id="profile.bio"
-                className="InputContactFormHome"
+                className="InputContactFormHome py-4"
                 rows="4"
               />
             </div>
