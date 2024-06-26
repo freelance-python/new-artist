@@ -79,7 +79,7 @@ const UserInfo = () => {
                   className="InputContactFormHome h-12"
                 />
               </div>
-            </div>x
+            </div>
             <div className="mb-6">
               <label
                 htmlFor="profile.bio"
