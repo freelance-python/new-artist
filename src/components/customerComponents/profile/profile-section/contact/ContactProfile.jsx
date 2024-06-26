@@ -39,6 +39,7 @@ const ContactProfile = () => {
             <Dialog
               open={Boolean(openContactUpdate)}
               onClose={handleCloseContactUpdate}
+              scroll="body"
             >
               <Box
                 sx={style}

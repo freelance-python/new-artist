@@ -38,6 +38,7 @@ const AddressDetails = () => {
           </button>
           {openContactUpdate && (
             <Dialog
+              scroll="body"
               open={Boolean(openContactUpdate)}
               onClose={handleCloseContactUpdate}
             >
