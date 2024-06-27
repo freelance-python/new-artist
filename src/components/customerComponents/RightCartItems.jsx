@@ -4,9 +4,11 @@ import { useCallback, useState } from "react";
 import { IoAdd, IoBagCheck } from "react-icons/io5";
 import { IoMdClose } from "react-icons/io";
 import { FiMinus } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 export default function RightCartItems() {
   const [state, setState] = useState(false);
+  const navigate = useNavigate();
 
   const toggleDrawer = useCallback((event, type) => {
     if (
@@ -58,7 +60,7 @@ export default function RightCartItems() {
             <div>
               <h3 className="font-bold text-[#1f2937]">Apples </h3>
               <p className="my-2.5 font-semibold text-accent">$1.60</p>
-              <span className="text-xs text-body">1 X 1lb</span>
+              <span className="text-xs text-[#6b7280]">1 X 1lb</span>
             </div>
           </div>
           <div className="flex justify-center items-center gap-3">
@@ -97,7 +99,7 @@ export default function RightCartItems() {
             <div>
               <h3 className="font-bold text-[#1f2937]">Baby Spinach</h3>
               <p className="my-2.5 font-semibold text-accent">$0.60</p>
-              <span className="text-xs text-body">1 X 2Pfund</span>
+              <span className="text-xs text-[#6b7280]">1 X 2Pfund</span>
             </div>
           </div>
           <div className="flex justify-center items-center gap-3">
@@ -171,7 +173,10 @@ export default function RightCartItems() {
             {list}
             <div className="mt-auto">
               <footer className="fixed bottom-0 z-10 w-full max-w-md bg-[#fff] px-6 py-5">
-                <button className="flex h-12 w-full justify-between rounded-full bg-[#009f7f] p-1 text-sm font-bold shadow-700 transition-colors hover:bg-[#019376] focus:bg-[#019376] focus:outline-0 md:h-14">
+                <button
+                  onClick={() => navigate("/checkout")}
+                  className="flex h-12 w-full justify-between rounded-full bg-[#009f7f] p-1 text-sm font-bold shadow-700 transition-colors hover:bg-[#019376] focus:bg-[#019376] focus:outline-0 md:h-14"
+                >
                   <span className="flex h-full flex-1 items-center px-5 text-[#fff]">
                     Checkout
                   </span>

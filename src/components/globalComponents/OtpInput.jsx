@@ -1,7 +1,7 @@
 import { useCallback, useRef, useState } from "react";
 import propTypes from "prop-types";
 
-const OtpContactUpdate = ({ onClose }) => {
+const OtpInput = ({ onSubmit, onCancel }) => {
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
   const inputRefs = useRef([]);
 
@@ -26,20 +26,20 @@ const OtpContactUpdate = ({ onClose }) => {
   const handleSubmitOtp = useCallback(
     (e) => {
       e.preventDefault();
-      console.log(otp.join(""));
-      onClose();
+      onSubmit(otp);
+      onCancel();
     },
-    [onClose, otp]
+    [onCancel, onSubmit, otp]
   );
 
   return (
     <div className="p-5 space-y-5 border border-gray-200 rounded">
-      <form className="w-full" onSubmit={handleSubmitOtp} noValidate>
-        <div className="flex flex-col w-full">
+      <div className="flex flex-col w-full">
+        <label className="block text-[#6b7280]-dark font-semibold text-sm leading-none mb-3">
+          OTP Code
+        </label>
+        <form className="w-full" onSubmit={handleSubmitOtp} noValidate>
           <div className="mb-5">
-            <label className="block text-body-dark font-semibold text-sm leading-none mb-3">
-              OTP Code
-            </label>
             <div className="flex items-center justify-between -mx-2">
               {otp.map((digit, index) => (
                 <div key={index} className="flex items-center">
@@ -65,7 +65,7 @@ const OtpContactUpdate = ({ onClose }) => {
           <div className="grid grid-cols-2 gap-5">
             <button
               type="button"
-              onClick={onClose}
+              onClick={onCancel}
               data-variant="outline"
               className="cancel-otp-input-box-contact"
             >
@@ -75,14 +75,15 @@ const OtpContactUpdate = ({ onClose }) => {
               Verify Code
             </button>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   );
 };
 
-OtpContactUpdate.propTypes = {
-  onClose: propTypes.func.isRequired,
+OtpInput.propTypes = {
+  onSubmit: propTypes.func.isRequired,
+  onCancel: propTypes.func.isRequired,
 };
 
-export default OtpContactUpdate;
+export default OtpInput;

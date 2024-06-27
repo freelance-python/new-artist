@@ -12,6 +12,7 @@ import TermsHome from "../containers/customer/TermsHome";
 import CustomerRefundHome from "../containers/customer/CustomerRefundHome";
 import VendorRefundHome from "../containers/customer/VendorRefundHome";
 import ProfileHome from "../containers/customer/ProfileHome";
+import CheckOutPage from "../containers/customer/CheckOutPage";
 
 const AppRoutes = () => {
   return (
@@ -24,6 +25,7 @@ const AppRoutes = () => {
         <Route element={<Layout />}>
           <Route path="/" element={<Homepage />} />
           <Route path="/home" element={<Homepage />} />
+          <Route path="/checkout" element={<CheckOutPage />} />
           <Route element={<FooterLayout />}>
             <Route path="/shops" element={<ShopsHome />} />
             <Route path="/offers" element={<OffersHome />} />
