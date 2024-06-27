@@ -23,6 +23,7 @@ const MobileLoginCustomer = ({ handleModalType }) => {
   }, []);
 
   const handleSubmitOtp = useCallback((otp) => {
+    
     console.log(otp);
   }, []);
 
