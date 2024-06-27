@@ -155,49 +155,6 @@ button.HideTopLeftDrawerMenu {
 }
 
 /************************************Mobile Login Customer Modal *********************/
-.input-group-mobile-modal {
-  display: flex;
-  align-items: center;
-}
-
-.input-number-mobile-modal {
-  min-height: 50px;
-  width: 100%;
-  padding: 0 1rem;
-  color: #fff;
-  border: 1px solid rgb(214, 214, 214);
-  border-radius: 6px 0 0 6px;
-  font-size: 15px;
-  background-color: white;
-}
-
-.button-submit-mobile-modal {
-  min-height: 50px;
-  min-width: 143px;
-  padding: 0.5em 1em;
-  border: none;
-  border-radius: 0 6px 6px 0;
-  background-color: #009f7f;
-  color: #fff;
-  font-size: 15px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.button-submit-mobile-modal:hover {
-  background-color: #009f7f;
-}
-
-.input-number-mobile-modal:focus {
-  border: 1px solid #009f7f;
-  border-radius: 6px 0 0 6px;
-}
-
-.input-number-mobile-modal:focus,
-.input-number-mobile-modal:focus-visible {
-  border-color: #009f7f;
-  outline: none;
-}
 .InputLabelAuthPage {
   margin-bottom: 0.75rem;
   display: block;
@@ -297,6 +254,7 @@ button.HideTopLeftDrawerMenu {
 
 .button-submit-profile-form {
   padding: 0.5em 1em;
+  display: flex;
   border: none;
   border-radius: 0 6px 6px 0;
   background-color: #009f7f;
