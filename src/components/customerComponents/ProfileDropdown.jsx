@@ -12,7 +12,7 @@ const ProfileDropdown = () => {
           {[
             { text: "Profile", href: "/profile" },
             { text: "My Orders", href: "/orders" },
-            { text: "My Wishlists", href: "/wishlists" },
+            { text: "My Wishlists", href: "/my-wishlists" },
             { text: "Checkout", href: "/checkout" },
             { text: "Logout", href: "/checkout" },
           ].map((item, index) => (

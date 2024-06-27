@@ -16,17 +16,17 @@ const tabs = [
     component: <ChangePasswordProfileSection />,
   },
   {
-    url: "my-orders",
+    url: "orders",
     label: "My Orders",
     component: <MyOrdersProfileSection />,
   },
   {
-    url: "my-wishlists",
+    url: "wishlists",
     label: "My Wishlists",
     component: <MyWishlistsProfileSection />,
   },
   {
-    url: "my-refunds",
+    url: "refunds",
     label: "My Refunds",
     component: <MyRefundsProfileSection />,
   },
