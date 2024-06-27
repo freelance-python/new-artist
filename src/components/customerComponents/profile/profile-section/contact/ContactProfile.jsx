@@ -1,10 +1,11 @@
 import { Box, Dialog } from "@mui/material";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { FaPlus } from "react-icons/fa";
-import OtpContactUpdate from "./OtpContactUpdate";
 import ContactUpdate from "./ContactUpdate";
+import propTypes from "prop-types";
+import OtpInput from "../../../../globalComponents/OtpInput";
 
-const ContactProfile = () => {
+const ContactProfile = ({ showCountBadge = false, count = 1 }) => {
   const [openContactUpdate, setOpenContactUpdate] = useState(false);
 
   const handleOpenContactUpdate = (type = "updateContact") => {
@@ -14,6 +15,11 @@ const ContactProfile = () => {
   const handleCloseContactUpdate = () => {
     setOpenContactUpdate(false);
   };
+
+  const handleSubmitOtp = useCallback((otp) => {
+    console.log(otp);
+  },[])
+
   const style = {
     position: "relative",
     border: "none",
@@ -25,9 +31,16 @@ const ContactProfile = () => {
     <div className="mb-8">
       <div className="p-5 md:p-8 bg-[#fff] shadow rounded flex w-full flex-col">
         <div className="mb-5 flex items-center justify-between md:mb-8">
-          <p className="text-lg capitalize text-[#1f2937] lg:text-xl">
-            Contact Number
-          </p>
+          <div className="flex items-center space-x-3 rtl:space-x-reverse md:space-x-4">
+            {showCountBadge ? (
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#009f7f] text-base text-[#fff] lg:text-xl">
+                {count}
+              </span>
+            ) : null}
+            <p className="text-lg capitalize text-[#1f2937] lg:text-xl">
+              Contact Number
+            </p>
+          </div>
           <button
             className="flex items-center gap-2 text-sm font-semibold text-[#009f7f] transition-colors duration-200 hover:text-accent-hover focus:text-accent-hover focus:outline-0"
             onClick={() => handleOpenContactUpdate()}
@@ -39,6 +52,7 @@ const ContactProfile = () => {
             <Dialog
               open={Boolean(openContactUpdate)}
               onClose={handleCloseContactUpdate}
+              scroll="body"
             >
               <Box
                 sx={style}
@@ -49,7 +63,7 @@ const ContactProfile = () => {
                     Update Contact Number
                   </h1>
                   {openContactUpdate === "verifyOtp" ? (
-                    <OtpContactUpdate onClose={handleCloseContactUpdate} />
+                    <OtpInput onSubmit={handleSubmitOtp} onCancel={handleCloseContactUpdate} />
                   ) : (
                     <ContactUpdate handleModalType={handleOpenContactUpdate} />
                   )}
@@ -80,3 +94,8 @@ const ContactProfile = () => {
 };
 
 export default ContactProfile;
+
+ContactProfile.propTypes = {
+  showCountBadge: propTypes.bool,
+  count: propTypes.func,
+};

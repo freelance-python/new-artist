@@ -2,8 +2,9 @@ import { Box, Dialog } from "@mui/material";
 import { FaPlus } from "react-icons/fa";
 import { useState } from "react";
 import AddressUpdate from "./AddressUpdate";
+import propTypes from "prop-types";
 
-const AddressDetails = () => {
+const AddressDetails = ({ showCountBadge = false, count = 2 }) => {
   const [openContactUpdate, setOpenContactUpdate] = useState(false);
 
   const handleOpenContactUpdate = () => {
@@ -25,9 +26,16 @@ const AddressDetails = () => {
       <div>
         <div className="mb-5 flex items-center justify-between md:mb-8">
           <div className="flex items-center space-x-3 rtl:space-x-reverse md:space-x-4">
-            <p className="text-lg capitalize text-[#1f2937] lg:text-xl">
-              Addresses
-            </p>
+            <div className="flex items-center space-x-3 rtl:space-x-reverse md:space-x-4">
+              {showCountBadge ? (
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#009f7f] text-base text-[#fff] lg:text-xl">
+                  {count}
+                </span>
+              ) : null}
+              <p className="text-lg capitalize text-[#1f2937] lg:text-xl">
+                Addresses
+              </p>
+            </div>
           </div>
           <button
             onClick={() => handleOpenContactUpdate()}
@@ -38,6 +46,7 @@ const AddressDetails = () => {
           </button>
           {openContactUpdate && (
             <Dialog
+              scroll="body"
               open={Boolean(openContactUpdate)}
               onClose={handleCloseContactUpdate}
             >
@@ -50,29 +59,25 @@ const AddressDetails = () => {
             </Dialog>
           )}
         </div>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+        {/* <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3"> */}
           <div className="group relative cursor-pointer rounded border p-4 hover:border-[#009f7f] border-transparent bg-gray-100">
             <p className="mb-3 text-sm font-semibold capitalize text-[#1f2937]">
-              Billing
+              Address Details
             </p>
             <p className="text-sm text-sub-[#1f2937]">
               2231 Kidd Avenue, AK, Kipnuk, 99614, United States
             </p>
             <div className="absolute top-4 flex space-x-2 opacity-0 group-hover:opacity-100"></div>
           </div>
-          <div className="group relative cursor-pointer rounded border p-4 hover:border-[#009f7f] border-transparent bg-gray-100">
-            <p className="mb-3 text-sm font-semibold capitalize text-[#1f2937]">
-              Shipping
-            </p>
-            <p className="text-sm text-sub-[#1f2937]">
-              2148 Straford Park, KY, Winchester, 40391, United States
-            </p>
-            <div className="absolute top-4 flex space-x-2 opacity-0 group-hover:opacity-100"></div>
-          </div>
-        </div>
+        {/* </div> */}
       </div>
     </div>
   );
 };
 
 export default AddressDetails;
+
+AddressDetails.propTypes = {
+  showCountBadge: propTypes.bool,
+  count: propTypes.func,
+};

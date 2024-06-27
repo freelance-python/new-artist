@@ -1,7 +1,31 @@
-import { useCallback } from "react";
-import propTypes from "prop-types";
+import { useCallback, useState } from "react";
+import PropTypes from "prop-types";
+import OtpInput from "../../globalComponents/OtpInput";
 
 const MobileLoginCustomer = ({ handleModalType }) => {
+  const [openVerifyOtp, setOpenVerifyOtp] = useState(false);
+  const [mobileNumber, setMobileNumber] = useState("");
+
+  const handleOpenVerifyOtp = useCallback(
+    (e) => {
+      e.preventDefault();
+      if (mobileNumber) {
+        setOpenVerifyOtp(true);
+      } else {
+        alert("Please enter a mobile number");
+      }
+    },
+    [mobileNumber]
+  );
+
+  const handleCloseVerifyOtp = useCallback(() => {
+    setOpenVerifyOtp(false);
+  }, []);
+
+  const handleSubmitOtp = useCallback((otp) => {
+    console.log(otp);
+  }, []);
+
   const toggleLoginPage = useCallback(() => {
     handleModalType("login");
   }, [handleModalType]);
@@ -23,19 +47,32 @@ const MobileLoginCustomer = ({ handleModalType }) => {
         Login with your mobile number. We&apos;ll send you a code to the given
         mobile number to login into your account
       </p>
-      <form className="my-4">
-        <div className="input-group-mobile-modal relative flex rounded md:rounded-lg h-12 shadow-900">
-          <input
-            type="tel"
-            className="input-number-mobile-modal"
-            id="tel"
-            placeholder="+91"
-          />
-          <button className="button-submit-mobile-modal rounded-lg px-8 font-semibold transition-colors duration-200">
-            Send OTP
-          </button>
-        </div>
-      </form>
+      {openVerifyOtp ? (
+        <OtpInput
+          onSubmit={handleSubmitOtp}
+          onCancel={handleCloseVerifyOtp}
+        />
+      ) : (
+        <form className="my-4" onSubmit={handleOpenVerifyOtp}>
+          <div className="input-group-mobile-modal relative flex rounded md:rounded-lg h-12 shadow-900">
+            <input
+              type="tel"
+              className="input-number-mobile-modal"
+              id="tel"
+              placeholder="+91"
+              value={mobileNumber}
+              onChange={(e) => setMobileNumber(e.target.value)}
+              required
+            />
+            <button
+              type="submit"
+              className="button-submit-mobile-modal rounded-lg px-8 font-semibold transition-colors duration-200"
+            >
+              Send OTP
+            </button>
+          </div>
+        </form>
+      )}
       <div className="relative flex flex-col items-center justify-center mt-8 mb-6 text-sm text-[#1f2937] sm:mt-11 sm:mb-8">
         <hr className="w-full" />
         <span className="absolute -top-2.5 bg-[#fff] px-2">Or</span>
@@ -43,7 +80,7 @@ const MobileLoginCustomer = ({ handleModalType }) => {
       <div className="text-sm text-center text-[#6c757d] sm:text-base">
         Back to&nbsp;
         <button
-          className="font-semibold underline transition-colors duration-200 text-[#009f7f] hover:text-[#019376] hover:no-underline "
+          className="font-semibold underline transition-colors duration-200 text-[#009f7f] hover:text-[#019376] hover:no-underline"
           onClick={toggleLoginPage}
         >
           Login
@@ -53,8 +90,8 @@ const MobileLoginCustomer = ({ handleModalType }) => {
   );
 };
 
-export default MobileLoginCustomer;
-
 MobileLoginCustomer.propTypes = {
-  handleModalType: propTypes.func,
+  handleModalType: PropTypes.func.isRequired,
 };
+
+export default MobileLoginCustomer;

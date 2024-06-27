@@ -5,13 +5,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import WalletPointsProfile from "./WalletPointsProfile";
 import ChangePasswordProfileSection from "./change-password/ChangePasswordProfileSection";
 import MyOrdersProfileSection from "./my-orders/MyOrdersProfileSection";
-import DownloadsProfileSection from "./downloads/DownloadsProfileSection";
 import MyWishlistsProfileSection from "./my-wishlists/MyWishlistsProfileSection";
-import MyQuestionsProfileSection from "./my-questions/MyQuestionsProfileSection";
 import MyRefundsProfileSection from "./my-refunds/MyRefundsProfileSection";
-import MyReportsProfileSection from "./my-reports/MyReportsProfileSection";
-import MyCardsProfileSection from "./my-cards/MyCardsProfileSection";
-import NeedHelpProfileSection from "./need-help/NeedHelpProfileSection";
 
 const tabs = [
   { url: "profile", label: "Profile", component: <ProfileSection /> },
@@ -21,40 +16,23 @@ const tabs = [
     component: <ChangePasswordProfileSection />,
   },
   {
-    url: "my-orders",
+    url: "orders",
     label: "My Orders",
     component: <MyOrdersProfileSection />,
   },
   {
-    url: "downloads",
-    label: "Downloads",
-    component: <DownloadsProfileSection />,
-  },
-  {
-    url: "my-wishlists",
+    url: "wishlists",
     label: "My Wishlists",
     component: <MyWishlistsProfileSection />,
   },
   {
-    url: "my-questions",
-    label: "My Questions",
-    component: <MyQuestionsProfileSection />,
-  },
-  {
-    url: "my-refunds",
+    url: "refunds",
     label: "My Refunds",
     component: <MyRefundsProfileSection />,
   },
   {
-    url: "my-reports",
-    label: "My Reports",
-    component: <MyReportsProfileSection />,
-  },
-  { url: "my-cards", label: "My Cards", component: <MyCardsProfileSection /> },
-  {
-    url: "need-help",
+    url: "help",
     label: "Need Help",
-    component: <NeedHelpProfileSection />,
   },
 ];
 
