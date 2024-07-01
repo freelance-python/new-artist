@@ -1,10 +1,29 @@
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const FormContact = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    toast.success(
+      "Thank you for contacting us. We will get back to you soon.!",
+      {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      }
+    );
+  };
+
   return (
     <>
       <h1 className="mb-7 font-body text-xl font-bold text-[#1f2937] md:text-2xl">
         How can we improve your experience?
       </h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <div>
             <label
@@ -59,7 +78,9 @@ const FormContact = () => {
             rows="4"
           />
         </div>
-        <button className="SubmitBtnContactFormHome">Submit</button>
+        <button type="submit" className="SubmitBtnContactFormHome">
+          Submit
+        </button>
       </form>
     </>
   );

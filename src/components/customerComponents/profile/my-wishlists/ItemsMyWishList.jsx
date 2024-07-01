@@ -5,6 +5,8 @@ import propTypes from "prop-types";
 import ProductsMyWishlists from "./ProductsMyWishlists";
 import { IoAdd } from "react-icons/io5";
 import { FiMinus } from "react-icons/fi";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const wishListInfo = [
   {
@@ -114,6 +116,17 @@ const ItemsMyWishList = ({ hideProductOfIndex = -1 }) => {
 
   const handleRemove = (index) => {
     setWishlist((prevWishlist) => prevWishlist.filter((_, i) => i !== index));
+    toast.success("Successfully Removed from Wishlist!", {
+      position: "top-right",
+      type: "success",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
   };
   const style = {
     position: "relative",
