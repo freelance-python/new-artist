@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { useNavigate, useParams } from "react-router-dom";
 import WalletPointsProfile from "./WalletPointsProfile";
 import ChangePasswordProfileSection from "./change-password/ChangePasswordProfileSection";
-import MyOrdersProfileSection from "./my-orders/MyOrdersProfileSection";
+import MyOrdersContainer from "./my-orders/MyOrdersContainer";
 import MyWishlistsProfileSection from "./my-wishlists/MyWishlistsProfileSection";
 import MyRefundsProfileSection from "./my-refunds/MyRefundsProfileSection";
 
@@ -18,7 +18,7 @@ const tabs = [
   {
     url: "orders",
     label: "My Orders",
-    component: <MyOrdersProfileSection />,
+    component: <MyOrdersContainer />,
   },
   {
     url: "wishlists",
@@ -64,7 +64,7 @@ function CustomTab({ tab, isSelected, onClick }) {
       <a
         className={`block border-l-4 py-2 px-10 font-semibold text-[#333333] transition-colors ${
           isSelected
-            ? "border-[#009f7f] text-[#009f7f]"
+            ? "border-[#009f7f] !text-[#009f7f]"
             : "border-transparent hover:text-[#009f7f] focus:text-[#009f7f]"
         }`}
         onClick={() => onClick(tab.url)}
