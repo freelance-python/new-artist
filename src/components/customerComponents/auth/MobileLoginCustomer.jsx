@@ -23,6 +23,7 @@ const MobileLoginCustomer = ({ handleModalType }) => {
   }, []);
 
   const handleSubmitOtp = useCallback((otp) => {
+    
     console.log(otp);
   }, []);
 
@@ -48,25 +49,29 @@ const MobileLoginCustomer = ({ handleModalType }) => {
         mobile number to login into your account
       </p>
       {openVerifyOtp ? (
-        <OtpInput
-          onSubmit={handleSubmitOtp}
-          onCancel={handleCloseVerifyOtp}
-        />
+        <OtpInput onSubmit={handleSubmitOtp} onCancel={handleCloseVerifyOtp} />
       ) : (
         <form className="my-4" onSubmit={handleOpenVerifyOtp}>
-          <div className="input-group-mobile-modal relative flex rounded md:rounded-lg h-12 shadow-900">
-            <input
-              type="tel"
-              className="input-number-mobile-modal"
-              id="tel"
-              placeholder="+91"
-              value={mobileNumber}
-              onChange={(e) => setMobileNumber(e.target.value)}
-              required
-            />
+          <div className="flex w-full items-center md:min-w-[360px]">
+            <div className="input-group-box-profile-form">
+              <input
+                className="input-profile-form h-12 !pl-20 !pr-4"
+                placeholder="9365141641"
+                type="tel"
+                value={mobileNumber}
+                onChange={(e) => setMobileNumber(e.target.value)}
+                required
+              />
+              <img
+                src="../../../src/assets/indiaflagicon.png"
+                alt=""
+                className="h-4 absolute pl-4"
+              />
+              <p className="absolute pl-12">+91</p>
+            </div>
             <button
               type="submit"
-              className="button-submit-mobile-modal rounded-lg px-8 font-semibold transition-colors duration-200"
+              className="button-submit-profile-form w-1/3 flex justify-center items-center h-12"
             >
               Send OTP
             </button>
