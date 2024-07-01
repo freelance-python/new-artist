@@ -5,9 +5,6 @@ import propTypes from "prop-types";
 import ProductsMyWishlists from "./ProductsMyWishlists";
 import { IoAdd } from "react-icons/io5";
 import { FiMinus } from "react-icons/fi";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import WishListRemoveToast from "../../../globalComponents/WishListRemoveToast";
 
 const wishListInfo = [
   {
@@ -117,7 +114,6 @@ const ItemsMyWishList = ({ hideProductOfIndex = -1 }) => {
 
   const handleRemove = (index) => {
     setWishlist((prevWishlist) => prevWishlist.filter((_, i) => i !== index));
-    toast.success(<WishListRemoveToast />);
   };
   const style = {
     position: "relative",
