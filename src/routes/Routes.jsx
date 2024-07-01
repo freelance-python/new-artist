@@ -43,8 +43,8 @@ const AppRoutes = () => {
               path="/vendor-refund-policies"
               element={<VendorRefundHome />}
             />
-            <Route path="/:tabView" element={<ProfileHome />} />
           </Route>
+            <Route path="/:tabView" element={<ProfileHome />} />
         </Route>
         {/* user routes end */}
 
