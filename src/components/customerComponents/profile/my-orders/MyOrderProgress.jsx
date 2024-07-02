@@ -1,5 +1,14 @@
 import { MdDone } from "react-icons/md";
 
+const progressSteps = [
+  { id: 1, label: "Pending", completed: true },
+  { id: 2, label: "Processing", completed: true },
+  { id: 3, label: "At Local Facility", completed: false },
+  { id: 4, label: "Out For Delivery", completed: false },
+  { id: 5, label: "Completed", completed: false },
+];
+
+
 const MyOrderProgress = () => {
   return (
     <div className="flex w-full items-center justify-center px-6">
@@ -46,13 +55,5 @@ const MyOrderProgress = () => {
     </div>
   );
 };
-
-const progressSteps = [
-  { id: 1, label: "Pending", completed: true },
-  { id: 2, label: "Processing", completed: true },
-  { id: 3, label: "At Local Facility", completed: false },
-  { id: 4, label: "Out For Delivery", completed: false },
-  { id: 5, label: "Completed", completed: false },
-];
 
 export default MyOrderProgress;

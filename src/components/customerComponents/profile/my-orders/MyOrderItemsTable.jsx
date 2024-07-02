@@ -82,7 +82,7 @@ const MyOrderItemsTable = () => {
   return (
     <TableContainer component={Paper}>
       <Table stickyHeader aria-label="sticky table">
-        <TableHead style={{ backgroundColor: "#f3f4f6" }}>
+        <TableHead sx={{ backgroundColor: "#f3f4f6" }}>
           <TableRow>
             {columns.map((column) => (
               <TableCell
