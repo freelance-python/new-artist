@@ -3,83 +3,50 @@ import { MdDone } from "react-icons/md";
 const MyOrderProgress = () => {
   return (
     <div className="flex w-full items-center justify-center px-6">
-      <div
-        className="os-theme-thin-dark h-full w-full"
-        data-overlayscrollbars="host"
-        data-overlayscrollbars-initialize=""
-      >
-        <div style={{ width: "calc(100% + 0px)" }} className="os-size-observer">
-          <div className="os-size-observer-listener ltr"></div>
-        </div>
-        <div
-          style={{
-            width: "calc(100% + 0px)",
-            padding: "0px",
-            marginRight: "0px",
-            marginBottom: "0px",
-            marginLeft: "0px",
-            top: "0px",
-            right: "auto",
-            left: "0px",
-          }}
-          data-overlayscrollbars-contents=""
-          data-overlayscrollbars-viewport="scrollbarHidden"
-        >
-          <div className="flex w-full flex-col py-7 md:flex-row md:items-start">
-            {/* Progress Steps */}
-            {progressSteps.map((step) => (
-              <div
-                key={step.id}
-                className="progress-box_progress_container__n7Sm7"
-              >
-                <div
-                  className={`progress-box_progress_wrapper__JZ0Ia ${
-                    step.completed && "progress-box_checked__bYvuh"
-                  }`}
+      <div className=" order-progress-scrollbar">
+        <ol className="flex items-center w-full text-xs text-gray-900 font-medium sm:text-base py-7">
+          {progressSteps.map((step, index) => (
+            <li
+              key={step.id}
+              className={`flex w-full relative ${
+                step.completed ? "text-[#000]" : "text-gray-900"
+              } ${
+                index !== progressSteps.length - 1
+                  ? step.completed
+                    ? "after:bg-[#009f7f]"
+                    : "after:bg-gray-200"
+                  : ""
+              } 
+            ${
+              index !== progressSteps.length - 1
+                ? "after:content-[''] after:w-full after:h-0.5 after:inline-block after:absolute lg:after:top-5 after:top-3 after:left-4"
+                : ""
+            }`}
+            >
+              <div className="block whitespace-nowrap z-10">
+                <span
+                  className={`w-6 h-6 ${
+                    step.completed
+                      ? "bg-[#009f7f] text-white"
+                      : "bg-gray-50 text-[#009f7f]"
+                  } border-2 ${
+                    step.completed
+                      ? "border-transparent"
+                      : "border-[#009f7f] border-dashed"
+                  } rounded-full flex justify-center items-center mx-auto mb-3 text-sm lg:w-10 lg:h-10`}
                 >
-                  <div className="progress-box_status_wrapper__Wemi0">
-                    {step.completed ? (
-                      <div className="h-4 w-3">
-                        <MdDone />
-                      </div>
-                    ) : (
-                      <div className="progress-box_status_wrapper__Wemi0">
-                        {step.id}
-                      </div>
-                    )}
-                  </div>
-                  <div className="progress-box_bar__pcoY4"></div>
-                </div>
-                <div className="flex flex-col items-start ltr:ml-5 rtl:mr-5 md:items-center ltr:md:ml-0 rtl:md:mr-0">
-                  <span className="text-base font-semibold capitalize text-body-dark ltr:text-left rtl:text-right md:px-2 md:!text-center">
-                    {step.label}
-                  </span>
-                </div>
+                  {step.completed ? <MdDone /> : step.id}
+                </span>
+                {step.label}
               </div>
-            ))}
-          </div>
-        </div>
-        <div className="os-scrollbar os-scrollbar-horizontal os-theme-dark os-scrollbar-auto-hide os-scrollbar-handle-interactive os-scrollbar-cornerless os-scrollbar-unusable">
-          <div className="os-scrollbar-track">
-            <div
-              className="os-scrollbar-handle"
-              style={{ width: "100%" }}
-            ></div>
-          </div>
-        </div>
-        <div className="os-scrollbar os-scrollbar-vertical os-theme-dark os-scrollbar-auto-hide os-scrollbar-handle-interactive os-scrollbar-cornerless os-scrollbar-unusable">
-          <div className="os-scrollbar-track">
-            <div
-              className="os-scrollbar-handle"
-              style={{ height: "100%" }}
-            ></div>
-          </div>
-        </div>
+            </li>
+          ))}
+        </ol>
       </div>
-      <div className="rc-table orderDetailsTable w-full rc-table-fixed-header rc-table-scroll-horizontal"></div>
     </div>
   );
 };
+
 const progressSteps = [
   { id: 1, label: "Pending", completed: true },
   { id: 2, label: "Processing", completed: true },

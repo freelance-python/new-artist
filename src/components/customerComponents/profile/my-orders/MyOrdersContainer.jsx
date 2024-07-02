@@ -3,6 +3,7 @@ import MyOrderCardsLeft from "./MyOrderCardsLeft";
 import MyOrderStatusSection from "./MyOrderStatusSection";
 import MyOrderSummarySection from "./MyOrderSummarySection";
 import MyOrderProgress from "./MyOrderProgress";
+import MyOrderItemsTable from "./MyOrderItemsTable";
 
 const MyOrderContainer = () => {
   return (
@@ -13,12 +14,12 @@ const MyOrderContainer = () => {
             My Orders
           </h3>
           <div className="w-full" style={{ height: "calc(100% - 80px)" }}>
-            <div className="px-5 custom-scrollbar">
+            <div className="px-5 order-card-scrollbar">
               <MyOrderCardsLeft />
               <div className="mt-8 flex justify-center lg:mt-12">
                 <button
                   data-variant="normal"
-                  className="inline-flex items-center justify-center shrink-0 leading-none rounded outline-none transition duration-300 ease-in-out focus:outline-0 focus:shadow focus:ring-1 focus:ring-accent-700 bg-accent text-light border border-transparent hover:bg-accent-hover px-5 py-0 h-12 text-sm font-semibold md:text-base"
+                  className="inline-flex items-center justify-center shrink-0 leading-none rounded outline-none transition duration-300 ease-in-out focus:outline-0 focus:shadow focus:ring-1 focus:ring-accent-700 bg-[#009f7f] text-[#fff] border border-transparent hover:bg-accent-hover px-5 py-0 h-12 text-sm font-semibold md:text-base"
                 >
                   Load More
                 </button>
@@ -45,6 +46,7 @@ const MyOrderContainer = () => {
         <MyOrderStatusSection />
         <MyOrderSummarySection />
         <MyOrderProgress />
+        <MyOrderItemsTable />
       </div>
     </div>
   );
