@@ -32,6 +32,7 @@ const AppRoutes = () => {
             <Route path="/shops" element={<ShopsHome />} />
             <Route path="/offers" element={<OffersHome />} />
             <Route path="/contact" element={<ContactHome />} />
+            <Route path="/shops/:shopsSlug/contact" element={<ContactHome />} />
             {/*Pages Routes */}
             <Route path="/flash-sales" element={<FlashSalesHome />} />
             <Route
@@ -40,7 +41,9 @@ const AppRoutes = () => {
             />
             <Route path="/authors" element={<AuthorsHome />} />
             <Route path="/help" element={<HelpHome />} />
+            <Route path="/shops/:shopsSlug/help" element={<HelpHome />} />
             <Route path="/terms" element={<TermsHome />} />
+            <Route path="/shops/:shopsSlug/terms" element={<TermsHome />} />
             <Route
               path="/customer-refund-policies"
               element={<CustomerRefundHome />}
