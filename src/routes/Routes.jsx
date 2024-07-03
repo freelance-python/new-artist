@@ -13,6 +13,8 @@ import CustomerRefundHome from "../containers/customer/CustomerRefundHome";
 import VendorRefundHome from "../containers/customer/VendorRefundHome";
 import ProfileHome from "../containers/customer/ProfileHome";
 import CheckOutPage from "../containers/customer/CheckOutPage";
+import DetailsFlashSale from "../components/customerComponents/flash-sales/DetailsFlashSale";
+import ShopDetailSection from "../components/customerComponents/shops/ShopsDetailSection";
 
 const AppRoutes = () => {
   return (
@@ -28,10 +30,15 @@ const AppRoutes = () => {
           <Route path="/checkout" element={<CheckOutPage />} />
           <Route element={<FooterLayout />}>
             <Route path="/shops" element={<ShopsHome />} />
+            <Route path="/shops/:shopsSlug" element={<ShopDetailSection />} />
             <Route path="/offers" element={<OffersHome />} />
             <Route path="/contact" element={<ContactHome />} />
             {/*Pages Routes */}
             <Route path="/flash-sales" element={<FlashSalesHome />} />
+            <Route
+              path="/flash-sales/:flashSaleSlug"
+              element={<DetailsFlashSale />}
+            />
             <Route path="/authors" element={<AuthorsHome />} />
             <Route path="/help" element={<HelpHome />} />
             <Route path="/terms" element={<TermsHome />} />
@@ -44,7 +51,7 @@ const AppRoutes = () => {
               element={<VendorRefundHome />}
             />
           </Route>
-            <Route path="/:tabView" element={<ProfileHome />} />
+          <Route path="/:tabView" element={<ProfileHome />} />
         </Route>
         {/* user routes end */}
 
