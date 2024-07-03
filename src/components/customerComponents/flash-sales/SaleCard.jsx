@@ -1,9 +1,10 @@
 import { Box, List, ListItem, ListItemText } from "@mui/material";
 import propTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const SaleCard = ({ details }) => {
   return (
-    <a href={details?.url} className="relative block overflow-hidden">
+    <Link to={details?.url} className="relative block overflow-hidden">
       <Box className="relative mb-4 h-52 overflow-hidden rounded-md bg-gray-300 md:mb-6 xl:h-60 2xl:h-[21.6875rem]">
         <Box
           className="absolute top-0 left-0 h-full w-full bg-cover bg-center bg-no-repeat blur-sm"
@@ -69,7 +70,7 @@ const SaleCard = ({ details }) => {
           />
         </ListItem>
       </List>
-    </a>
+    </Link>
   );
 };
 
