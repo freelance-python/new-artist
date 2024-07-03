@@ -1,6 +1,23 @@
 import { CiDiscount1 } from "react-icons/ci";
+import ItemsListHome from "../ItemsListHome";
+import { useMemo } from "react";
+import { useParams } from "react-router-dom";
+import { shopEntries } from "./shopEntries";
 
 const ShopDetailSection = () => {
+  const { shopsSlug } = useParams();
+  const shopDetailData = useMemo(() => {
+    if (shopsSlug) {
+      return shopEntries.find((s) =>
+        s.name.toLowerCase().includes(shopsSlug.toLowerCase())
+      );
+    }
+    return null;
+  }, [shopsSlug]);
+
+  if (!shopDetailData) {
+    return <div>No shop found</div>;
+  }
   return (
     <div className="mt-20">
       <div className="flex flex-col bg-gray-100 lg:flex-row lg:items-start lg:p-8 gap-4">
@@ -14,18 +31,20 @@ const ShopDetailSection = () => {
                       <img
                         alt="logo"
                         className="object-cover"
-                        src="https://pickbazar-react-rest.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F1786%2FMedicine.jpg&amp;w=3840&amp;q=75"
+                        src={shopDetailData.imageUrl}
                       />
                     </div>
                   </div>
                   <div className="ltr:pl-2.5 rtl:pr-2.5">
                     <div className="text-sm text-gray-400">Since 2023</div>
                     <h3 className="mb-2 overflow-hidden text-lg font-semibold truncate text-[#1f2937]">
-                      Medicine
+                      {shopDetailData.name}
                     </h3>
                     <div className="flex flex-wrap text-sm rounded gap-x-4">
                       <div className="flex justify-center gap-1.5 text-gray-500">
-                        <div className="font-medium text-[#1f2937]">26</div>
+                        <div className="font-medium text-[#1f2937]">
+                          {shopDetailData.productCount}
+                        </div>
                         products
                       </div>
                     </div>
@@ -76,30 +95,32 @@ const ShopDetailSection = () => {
                     Address
                   </span>
                   <p className="text-sm text-[#6b7280]">
-                    East Avenue 1743, West Tower, New York, Manhattan, 12332,
-                    United States
+                    {shopDetailData.address}
                   </p>
                 </div>
                 <div className="flex flex-col mb-5 last:mb-0">
                   <span className="mb-1.5 text-sm font-semibold text-[#1f2937]">
                     Phone
                   </span>
-                  <p className="text-sm text-[#6b7280]">8139982265</p>
+                  <p className="text-sm text-[#6b7280]">
+                    {shopDetailData.phoneNo}
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="flex flex-col w-full p-4 pb-12 lg:p-0 ltr:lg:pl-8 rtl:lg:pr-8">
+        <div className="flex flex-col w-full p-4 pb-12 lg:p-0 gap-4">
           <div className="relative w-full h-full overflow-hidden rounded">
             <img
               alt="[#1f2937]"
               width="2340"
               height="870"
               className="w-full h-full"
-              src="https://pickbazar-react-rest.vercel.app/_next/image?url=https%3A%2F%2Fpickbazarlaravel.s3.ap-southeast-1.amazonaws.com%2F1787%2FMedicine-banner.png&w=3840&q=75"
+              src={shopDetailData.headImage}
             />
           </div>
+          <ItemsListHome />
         </div>
       </div>
     </div>

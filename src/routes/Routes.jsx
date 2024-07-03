@@ -30,7 +30,6 @@ const AppRoutes = () => {
           <Route path="/checkout" element={<CheckOutPage />} />
           <Route element={<FooterLayout />}>
             <Route path="/shops" element={<ShopsHome />} />
-            <Route path="/shops/:shopsSlug" element={<ShopDetailSection />} />
             <Route path="/offers" element={<OffersHome />} />
             <Route path="/contact" element={<ContactHome />} />
             {/*Pages Routes */}
@@ -51,6 +50,7 @@ const AppRoutes = () => {
               element={<VendorRefundHome />}
             />
           </Route>
+          <Route path="/shops/:shopsSlug" element={<ShopDetailSection />} />
           <Route path="/:tabView" element={<ProfileHome />} />
         </Route>
         {/* user routes end */}
