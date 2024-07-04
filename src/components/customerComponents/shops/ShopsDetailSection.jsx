@@ -31,7 +31,7 @@ const ShopDetailSection = () => {
     <div className="mt-20">
       <div className="flex flex-col bg-gray-100 lg:flex-row lg:items-start lg:p-8 gap-6">
         <div className="hidden h-full w-full bg-[#fff] md:rounded lg:block lg:w-80 2xl:w-96 sticky top-24 lg:top-28">
-          <div className="max-h-full overflow-hidden">
+          <div className="min-h-[85vh] overflow-hidden">
             <div className="flex flex-col h-full">
               <div className="flex flex-col w-full p-6 border-b border-gray-200">
                 <div className="flex items-center justify-start gap-2 mb-4">
@@ -140,9 +140,9 @@ const ShopDetailSection = () => {
         <div className="flex flex-col w-full p-4 pb-12 lg:p-0 gap-4">
           <div className="relative w-full h-full overflow-hidden rounded">
             <img
-              alt="[#1f2937]"
-              width="2340"
-              height="870"
+              alt="headImage"
+              // width="2340"
+              // height="870"
               className="w-full h-full"
               src={shopDetailData.headImage}
             />
