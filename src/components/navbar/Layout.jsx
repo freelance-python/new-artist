@@ -1,8 +1,8 @@
 import HomeNav from "./HomeNav";
-import VendorNav from "./VendorNav";
 import { Outlet } from "react-router-dom";
 import propTypes from "prop-types";
 import FooterCustomer from "../customerComponents/footer/FooterCustomer";
+import VendorNav from "./vendor/VendorNav";
 
 const Layout = ({ type = "user" }) => {
   return (

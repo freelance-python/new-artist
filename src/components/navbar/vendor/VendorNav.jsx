@@ -4,23 +4,17 @@ import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
 import MuiAppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import List from "@mui/material/List";
 import CssBaseline from "@mui/material/CssBaseline";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+import navlogowithtext from "../../../../src/assets/navlogowithtext.webp";
+import iconlogonav from "../../../../src/assets/iconlogonav.webp";
+import VendorSidebarSection from "./VendorSidebarSection";
+import { menuListSidebar } from "./menuListSidebar";
 
-import navlogowithtext from "../../../src/assets/navlogowithtext.webp";
-import iconlogonav from "../../../src/assets/iconlogonav.webp";
-import { ListItemText } from "@mui/material";
-
-const drawerWidth = 288;
+const drawerWidth = 305;
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
@@ -100,9 +94,14 @@ const Drawer = styled(MuiDrawer, {
 
 export default function VendorNav() {
   const [open, setOpen] = React.useState(true);
+  const [currentTab, setCurrentTab] = React.useState(0);
 
   const toggleDrawer = () => {
     setOpen((prevOpen) => !prevOpen);
+  };
+
+  const handleTabChange = (index) => {
+    setCurrentTab(index);
   };
 
   return (
@@ -115,9 +114,7 @@ export default function VendorNav() {
             aria-label="open drawer"
             onClick={toggleDrawer}
             edge="start"
-            sx={{
-              marginRight: 5,
-            }}
+            sx={{ marginRight: 5 }}
           >
             <MenuIcon />
           </IconButton>
@@ -127,72 +124,25 @@ export default function VendorNav() {
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
-        <DrawerHeader style={{ justifyContent: "flex-start" }}>
+        <DrawerHeader>
           <img
             src={open ? navlogowithtext : iconlogonav}
-            alt="PickBazar Logo"
-            style={{ width: open ? 180 : 40 }}
+            alt="Logo"
+            style={{ width: "100%", padding: "10px" }}
           />
         </DrawerHeader>
         <Divider />
-        <List>
-          {["Dashboard", "Shops", "Products", "Orders"].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: "block" }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? "initial" : "center",
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
-                  }}
-                >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {["User", "Faq", "Settings"].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: "block" }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? "initial" : "center",
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
-                  }}
-                >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
+        <VendorSidebarSection onTabChange={handleTabChange} />
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
-        </Typography>
+        {/* Render content based on currentTab */}
+        {menuListSidebar[currentTab] && (
+          <Typography paragraph>
+            {/* Render content based on selected tab */}
+            {menuListSidebar[currentTab].title} content goes here
+          </Typography>
+        )}
       </Box>
     </Box>
   );

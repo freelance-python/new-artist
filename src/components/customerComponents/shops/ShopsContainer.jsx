@@ -8,7 +8,7 @@ const ShopsContainer = () => {
         <h3 className="mb-8 text-2xl font-bold text-[#1f2937]">All Shops</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {shopEntries.map((shop) => (
-            <a key={shop.id} href={`/shops/${shop.name.toLowerCase()}`}>
+            <a key={shop.id} href={`/shops/${shop.slug}`}>
               <div className="relative flex items-center rounded border border-gray-200 p-5 gap-3">
                 <div className="relative flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-full bg-gray-300">
                   <img alt="Logo" src={shop.imageUrl} />
