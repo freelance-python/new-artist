@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import {
   Accordion,
   AccordionDetails,
-  Divider,
   List,
   ListItem,
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  Typography,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import MuiAccordionSummary from "@mui/material/AccordionSummary";
@@ -37,15 +35,10 @@ const VendorSidebarSection = () => {
     <div className="dashboard-sidebar-scrollbar">
       {menuListSidebar.map((section, index) => (
         <div key={index} className="flex flex-col px-5 pt-6 pb-3">
-          <Typography
-            variant="caption"
-            display="block"
-            gutterBottom
-            className="px-3 pb-5 text-xs font-semibold uppercase tracking-[0.05em] text-[#66666699]"
-          >
+          <p className="pb-5 text-xs font-semibold uppercase tracking-[0.05em] text-[#66666699]">
             {section.title}
-          </Typography>
-          <List className="rounded-md px-3 py-2.5">
+          </p>
+          <List disablePadding>
             {section.items.map((item, itemIndex) => (
               <React.Fragment key={itemIndex}>
                 {item.subItems && item.subItems.length > 0 ? (
@@ -57,7 +50,7 @@ const VendorSidebarSection = () => {
                     <AccordionSummary
                       aria-controls={`panel${index}${itemIndex}-content`}
                       id={`panel${index}${itemIndex}-header`}
-                      className="px-3 py-2.5 text-sm text-gray-700 text-start focus:text-[#019376] hover:bg-gray-100 font-medium !text-accent-hover bg-[#009f7f1a] hover:!bg-[#009f7f1a]"
+                      className="m-0 py-2.5 text-sm text-gray-700 text-start focus:text-[#019376] hover:bg-gray-100 font-medium !text-accent-hover bg-[#009f7f1a] hover:!bg-[#009f7f1a]"
                     >
                       <ListItemIcon
                         sx={{
@@ -76,16 +69,18 @@ const VendorSidebarSection = () => {
                           <ListItemButton
                             key={subIndex}
                             sx={{
-                              pl: 4,
+                              // pl: 4,
                               justifyContent: "initial",
+                              alignItems: "center",
                             }}
                             href={subItem.href}
                           >
                             <ListItemIcon
                               sx={{
                                 minWidth: 0,
-                                mr: 3,
+                                mr: 2,
                                 justifyContent: "center",
+                                alignItems: "center",
                               }}
                             >
                               {subItem.icon}
@@ -99,19 +94,20 @@ const VendorSidebarSection = () => {
                 ) : (
                   <ListItem disablePadding sx={{ display: "block" }}>
                     <ListItemButton
-                      className="px-3 py-2.5 text-sm text-gray-700 text-start focus:text-[#019376] hover:bg-gray-100 font-medium !text-accent-hover bg-[#009f7f1a] hover:!bg-[#009f7f1a]"
+                      className="py-2.5 text-sm text-gray-700 text-start focus:text-[#019376] hover:bg-gray-100 font-medium !text-accent-hover bg-[#009f7f1a] hover:!bg-[#009f7f1a]"
                       sx={{
-                        minHeight: 48,
+                        // minHeight: 48,
                         justifyContent: "initial",
-                        px: 2.5,
+                        alignItems: "center",
                       }}
                       href={item.href}
                     >
                       <ListItemIcon
                         sx={{
                           minWidth: 0,
-                          mr: 3,
+                          mr: 2,
                           justifyContent: "center",
+                          alignItems: "center",
                         }}
                       >
                         {item.icon}
@@ -123,7 +119,6 @@ const VendorSidebarSection = () => {
               </React.Fragment>
             ))}
           </List>
-          <Divider />
         </div>
       ))}
     </div>
