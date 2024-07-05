@@ -82,6 +82,7 @@ export const menuListSidebar = [
         href: "/groups",
       },
       {
+        id:"1",
         text: "FAQs",
         icon: <MdOutlineDashboard />,
         href: "#",
@@ -91,6 +92,7 @@ export const menuListSidebar = [
         ],
       },
       {
+        id:"2",
         text: "Terms And Conditions",
         icon: <MdOutlineDashboard />,
         href: "#",

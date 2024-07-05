@@ -1,4 +1,7 @@
+import React, { useState } from "react";
 import {
+  Accordion,
+  AccordionDetails,
   Divider,
   List,
   ListItem,
@@ -7,22 +10,29 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
-import React from "react";
+import { styled } from "@mui/material/styles";
+import MuiAccordionSummary from "@mui/material/AccordionSummary";
+import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import { menuListSidebar } from "./menuListSidebar";
 
+const AccordionSummary = styled((props) => (
+  <MuiAccordionSummary
+    expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: "0.9rem" }} />}
+    {...props}
+  />
+))({
+  "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": {
+    transform: "rotate(90deg)",
+  },
+});
 
 const VendorSidebarSection = () => {
-  const [openSubItems, setOpenSubItems] = React.useState(
-    Array(menuListSidebar.length).fill(false)
-  );
+  const [expanded, setExpanded] = useState(false);
 
-  const toggleSubItems = (index) => {
-    setOpenSubItems((prev) => {
-      const newArray = [...prev];
-      newArray[index] = !newArray[index];
-      return newArray;
-    });
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
   };
+
   return (
     <div className="dashboard-sidebar-scrollbar">
       {menuListSidebar.map((section, index) => (
@@ -38,72 +48,77 @@ const VendorSidebarSection = () => {
           <List className="rounded-md px-3 py-2.5">
             {section.items.map((item, itemIndex) => (
               <React.Fragment key={itemIndex}>
-                <ListItem
-                  disablePadding
-                  sx={{ display: "block" }}
-                  className="px-3 py-2.5 text-sm text-gray-700 text-start focus:text-[#019376] hover:bg-gray-100 font-medium !text-accent-hover bg-[#009f7f1a] hover:!bg-[#009f7f1a]"
-                >
-                  <ListItemButton
-                    sx={{
-                      minHeight: 48,
-                      justifyContent: open ? "initial" : "center",
-                      px: 2.5,
-                    }}
-                    href={item.href}
-                    onClick={() => {
-                      if (item.subItems && item.subItems.length > 0) {
-                        toggleSubItems(index);
-                      }
-                    }}
+                {item.subItems && item.subItems.length > 0 ? (
+                  <Accordion
+                    expanded={expanded === `panel${index}${itemIndex}`}
+                    onChange={handleChange(`panel${index}${itemIndex}`)}
+                    sx={{ border: "none", boxShadow: "none" }}
                   >
-                    <ListItemIcon
-                      sx={{
-                        minWidth: 0,
-                        mr: open ? 3 : "auto",
-                        justifyContent: "center",
-                      }}
+                    <AccordionSummary
+                      aria-controls={`panel${index}${itemIndex}-content`}
+                      id={`panel${index}${itemIndex}-header`}
+                      className="px-3 py-2.5 text-sm text-gray-700 text-start focus:text-[#019376] hover:bg-gray-100 font-medium !text-accent-hover bg-[#009f7f1a] hover:!bg-[#009f7f1a]"
                     >
-                      {item.icon}
-                    </ListItemIcon>
-                    <ListItemText
-                      primary={item.text}
-                      sx={{ opacity: open ? 1 : 0 }}
-                    />
-                  </ListItemButton>
-                </ListItem>
-                {item.subItems && item.subItems.length > 0 && (
-                  <List
-                    component="div"
-                    disablePadding
-                    sx={{
-                      display: openSubItems[index] ? "block" : "none",
-                    }}
-                  >
-                    {item.subItems.map((subItem, subIndex) => (
-                      <ListItemButton
-                        key={subIndex}
+                      <ListItemIcon
                         sx={{
-                          pl: 4,
-                          justifyContent: open ? "initial" : "center",
+                          minWidth: 0,
+                          mr: 3,
+                          justifyContent: "center",
                         }}
-                        href={subItem.href}
                       >
-                        <ListItemIcon
-                          sx={{
-                            minWidth: 0,
-                            mr: open ? 3 : "auto",
-                            justifyContent: "center",
-                          }}
-                        >
-                          {subItem.icon}
-                        </ListItemIcon>
-                        <ListItemText
-                          primary={subItem.text}
-                          sx={{ opacity: open ? 1 : 0 }}
-                        />
-                      </ListItemButton>
-                    ))}
-                  </List>
+                        {item.icon}
+                      </ListItemIcon>
+                      <ListItemText primary={item.text} />
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <List component="div" disablePadding>
+                        {item.subItems.map((subItem, subIndex) => (
+                          <ListItemButton
+                            key={subIndex}
+                            sx={{
+                              pl: 4,
+                              justifyContent: "initial",
+                            }}
+                            href={subItem.href}
+                          >
+                            <ListItemIcon
+                              sx={{
+                                minWidth: 0,
+                                mr: 3,
+                                justifyContent: "center",
+                              }}
+                            >
+                              {subItem.icon}
+                            </ListItemIcon>
+                            <ListItemText primary={subItem.text} />
+                          </ListItemButton>
+                        ))}
+                      </List>
+                    </AccordionDetails>
+                  </Accordion>
+                ) : (
+                  <ListItem disablePadding sx={{ display: "block" }}>
+                    <ListItemButton
+                      className="px-3 py-2.5 text-sm text-gray-700 text-start focus:text-[#019376] hover:bg-gray-100 font-medium !text-accent-hover bg-[#009f7f1a] hover:!bg-[#009f7f1a]"
+                      sx={{
+                        minHeight: 48,
+                        justifyContent: "initial",
+                        px: 2.5,
+                      }}
+                      href={item.href}
+                    >
+                      <ListItemIcon
+                        sx={{
+                          minWidth: 0,
+                          mr: 3,
+                          justifyContent: "center",
+                        }}
+                      >
+                        {item.icon}
+                      </ListItemIcon>
+                      <ListItemText primary={item.text} />
+                    </ListItemButton>
+                  </ListItem>
                 )}
               </React.Fragment>
             ))}
