@@ -13,9 +13,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
-
+import { MdOutlineDashboard } from "react-icons/md";
 import navlogowithtext from "../../../src/assets/navlogowithtext.webp";
 import iconlogonav from "../../../src/assets/iconlogonav.webp";
 import { ListItemText } from "@mui/material";
@@ -98,6 +96,191 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
+const menuItems = [
+  {
+    title: "Main",
+    items: [{ text: "Dashboard", icon: <MdOutlineDashboard />, href: "/" }],
+  },
+  {
+    title: "Shop management",
+    items: [
+      {
+        text: "Shops",
+        icon: <MdOutlineDashboard />,
+        href: "#",
+        subItems: [
+          { text: "All shops", href: "/shops" },
+          { text: "Add new shop", href: "/shops/create" },
+          { text: "Inactive/New shops", href: "/new-shops" },
+        ],
+      },
+      { text: "My Shops", icon: <MdOutlineDashboard />, href: "/my-shops" },
+    ],
+  },
+  {
+    title: "Product management",
+    items: [
+      {
+        text: "Products",
+        icon: <MdOutlineDashboard />,
+        href: "#",
+        subItems: [
+          { text: "All Products", href: "/products" },
+          { text: "My Draft Products", href: "/products/draft" },
+          {
+            text: "All Low & Out of Stock Products",
+            href: "/products/product-stock",
+          },
+        ],
+      },
+      {
+        text: "Inventory",
+        icon: <MdOutlineDashboard />,
+        href: "/products/inventory",
+      },
+      { text: "Categories", icon: <MdOutlineDashboard />, href: "/categories" },
+      { text: "Tags", icon: <MdOutlineDashboard />, href: "/tags" },
+      { text: "Attributes", icon: <MdOutlineDashboard />, href: "/attributes" },
+      {
+        text: "Manufacturers/Publications",
+        icon: <MdOutlineDashboard />,
+        href: "/manufacturers",
+      },
+      { text: "Authors", icon: <MdOutlineDashboard />, href: "/authors" },
+    ],
+  },
+  {
+    title: "E-commerce Management",
+    items: [
+      { text: "Taxes", icon: <MdOutlineDashboard />, href: "/taxes" },
+      { text: "Shippings", icon: <MdOutlineDashboard />, href: "/shippings" },
+      { text: "Withdrawals", icon: <MdOutlineDashboard />, href: "/withdraws" },
+      {
+        text: "Refunds",
+        icon: <MdOutlineDashboard />,
+        href: "#",
+        subItems: [
+          { text: "Reported refunds", href: "/refunds" },
+          { text: "Refund Policies", href: "/refund-policies" },
+          { text: "Add new refund policy", href: "/refund-policies/create" },
+          { text: "Refund Reasons", href: "/refund-reasons" },
+          { text: "Add new refund reason", href: "/refund-reasons/create" },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Layout/Page control",
+    items: [
+      {
+        text: "Home pages / Groups",
+        icon: <MdOutlineDashboard />,
+        href: "/groups",
+      },
+      {
+        text: "FAQs",
+        icon: <MdOutlineDashboard />,
+        href: "#",
+        subItems: [
+          { text: "All FAQs", href: "/faqs" },
+          { text: "Add new FAQ", href: "/faqs/create" },
+        ],
+      },
+      {
+        text: "Terms And Conditions",
+        icon: <MdOutlineDashboard />,
+        href: "#",
+        subItems: [],
+      },
+    ],
+  },
+  {
+    title: "Order management",
+    items: [
+      { text: "Orders", icon: <MdOutlineDashboard />, href: "/orders" },
+      {
+        text: "Create Order",
+        icon: <MdOutlineDashboard />,
+        href: "/orders/create",
+      },
+      {
+        text: "Transactions",
+        icon: <MdOutlineDashboard />,
+        href: "/orders/transaction",
+      },
+    ],
+  },
+  {
+    title: "User control",
+    items: [
+      { text: "All users", icon: <MdOutlineDashboard />, href: "/users" },
+      {
+        text: "Admin list",
+        icon: <MdOutlineDashboard />,
+        href: "/users/admins",
+      },
+      {
+        text: "Vendors",
+        icon: <MdOutlineDashboard />,
+        href: "#",
+        subItems: [],
+      },
+      { text: "Staff", icon: <MdOutlineDashboard />, href: "#", subItems: [] },
+      {
+        text: "Customers",
+        icon: <MdOutlineDashboard />,
+        href: "/users/customer",
+      },
+    ],
+  },
+  {
+    title: "Feedback control",
+    items: [
+      { text: "Reviews", icon: <MdOutlineDashboard />, href: "/reviews" },
+      { text: "Questions", icon: <MdOutlineDashboard />, href: "/questions" },
+    ],
+  },
+  {
+    title: "Promotional management",
+    items: [
+      {
+        text: "Coupons",
+        icon: <MdOutlineDashboard />,
+        href: "#",
+        subItems: [],
+      },
+      {
+        text: "Flash Sale",
+        icon: <MdOutlineDashboard />,
+        href: "#",
+        subItems: [],
+      },
+    ],
+  },
+  {
+    title: "Feature Management",
+    items: [
+      { text: "Message", icon: <MdOutlineDashboard />, href: "/message" },
+      {
+        text: "Store Notice",
+        icon: <MdOutlineDashboard />,
+        href: "/store-notices",
+      },
+    ],
+  },
+  {
+    title: "Site management",
+    items: [
+      {
+        text: "Settings",
+        icon: <MdOutlineDashboard />,
+        href: "#",
+        subItems: [],
+      },
+    ],
+  },
+];
+
 export default function VendorNav() {
   const [open, setOpen] = React.useState(true);
 
@@ -115,9 +298,7 @@ export default function VendorNav() {
             aria-label="open drawer"
             onClick={toggleDrawer}
             edge="start"
-            sx={{
-              marginRight: 5,
-            }}
+            sx={{ marginRight: 5 }}
           >
             <MenuIcon />
           </IconButton>
@@ -130,69 +311,90 @@ export default function VendorNav() {
         <DrawerHeader style={{ justifyContent: "flex-start" }}>
           <img
             src={open ? navlogowithtext : iconlogonav}
-            alt="PickBazar Logo"
-            style={{ width: open ? 180 : 40 }}
+            alt="Logo"
+            style={{ width: "100%", padding: "10px" }}
           />
         </DrawerHeader>
         <Divider />
-        <List>
-          {["Dashboard", "Shops", "Products", "Orders"].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: "block" }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? "initial" : "center",
-                  px: 2.5,
-                }}
+        <div className="order-card-scrollbar">
+          {menuItems.map((section, index) => (
+            <div key={index}>
+              <Typography
+                variant="caption"
+                display="block"
+                gutterBottom
+                className="px-3 pb-5 text-xs font-semibold uppercase tracking-[0.05em] text-[#66666699]"
               >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
-                  }}
-                >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
+                {section.title}
+              </Typography>
+              <List>
+                {section.items.map((item, itemIndex) => (
+                  <ListItem
+                    key={itemIndex}
+                    disablePadding
+                    sx={{ display: "block" }}
+                  >
+                    <ListItemButton
+                      sx={{
+                        minHeight: 48,
+                        justifyContent: open ? "initial" : "center",
+                        px: 2.5,
+                      }}
+                      href={item.href}
+                    >
+                      <ListItemIcon
+                        sx={{
+                          minWidth: 0,
+                          mr: open ? 3 : "auto",
+                          justifyContent: "center",
+                        }}
+                      >
+                        {item.icon}
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={item.text}
+                        sx={{ opacity: open ? 1 : 0 }}
+                      />
+                    </ListItemButton>
+                    {item.subItems && item.subItems.length > 0 && (
+                      <List component="div" disablePadding>
+                        {item.subItems.map((subItem, subIndex) => (
+                          <ListItemButton
+                            key={subIndex}
+                            sx={{
+                              pl: 4,
+                              justifyContent: open ? "initial" : "center",
+                            }}
+                            href={subItem.href}
+                          >
+                            <ListItemIcon
+                              sx={{
+                                minWidth: 0,
+                                mr: open ? 3 : "auto",
+                                justifyContent: "center",
+                              }}
+                            >
+                              {subItem.icon}
+                            </ListItemIcon>
+                            <ListItemText
+                              primary={subItem.text}
+                              sx={{ opacity: open ? 1 : 0 }}
+                            />
+                          </ListItemButton>
+                        ))}
+                      </List>
+                    )}
+                  </ListItem>
+                ))}
+              </List>
+              <Divider />
+            </div>
           ))}
-        </List>
-        <Divider />
-        <List>
-          {["User", "Faq", "Settings"].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: "block" }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? "initial" : "center",
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
-                  }}
-                >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
+        </div>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
-        </Typography>
+        <Typography paragraph>Content goes here</Typography>
       </Box>
     </Box>
   );
