@@ -92,6 +92,7 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
+
 export default function VendorNav() {
   const [open, setOpen] = React.useState(true);
   const [currentTab, setCurrentTab] = React.useState(0);
@@ -136,10 +137,8 @@ export default function VendorNav() {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        {/* Render content based on currentTab */}
         {menuListSidebar[currentTab] && (
           <Typography paragraph>
-            {/* Render content based on selected tab */}
             {menuListSidebar[currentTab].title} content goes here
           </Typography>
         )}

@@ -7,21 +7,21 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { menuListSidebar } from "./menuListSidebar";
-
+import { FaChevronRight } from "react-icons/fa";
 
 const VendorSidebarSection = () => {
-  const [openSubItems, setOpenSubItems] = React.useState(
-    Array(menuListSidebar.length).fill(false)
-  );
+  const [openSubItems, setOpenSubItems] = useState({});
 
   const toggleSubItems = (index) => {
-    setOpenSubItems((prev) => {
-      const newArray = [...prev];
-      newArray[index] = !newArray[index];
-      return newArray;
-    });
+    setOpenSubItems((prev) => ({
+      ...Object.keys(prev).reduce((acc, key) => {
+        acc[key] = false;
+        return acc;
+      }, {}),
+      [index]: !prev[index],
+    }));
   };
   return (
     <div className="dashboard-sidebar-scrollbar">
@@ -38,12 +38,9 @@ const VendorSidebarSection = () => {
           <List className="rounded-md px-3 py-2.5">
             {section.items.map((item, itemIndex) => (
               <React.Fragment key={itemIndex}>
-                <ListItem
-                  disablePadding
-                  sx={{ display: "block" }}
-                  className="px-3 py-2.5 text-sm text-gray-700 text-start focus:text-[#019376] hover:bg-gray-100 font-medium !text-accent-hover bg-[#009f7f1a] hover:!bg-[#009f7f1a]"
-                >
+                <ListItem disablePadding sx={{ display: "block" }}>
                   <ListItemButton
+                    className="px-3 py-2.5 text-sm text-gray-700 text-start focus:text-[#019376] hover:bg-gray-100 font-medium !text-accent-hover bg-[#009f7f1a] hover:!bg-[#009f7f1a]"
                     sx={{
                       minHeight: 48,
                       justifyContent: open ? "initial" : "center",
@@ -69,6 +66,17 @@ const VendorSidebarSection = () => {
                       primary={item.text}
                       sx={{ opacity: open ? 1 : 0 }}
                     />
+                    {item.subItems && item.subItems.length > 0 && (
+                      <FaChevronRight
+                        style={{
+                          marginLeft: "auto",
+                          transition: "transform 0.3s ease",
+                        }}
+                        className={
+                          openSubItems[index] ? "transform rotate-90" : ""
+                        }
+                      />
+                    )}
                   </ListItemButton>
                 </ListItem>
                 {item.subItems && item.subItems.length > 0 && (
