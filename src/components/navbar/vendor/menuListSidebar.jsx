@@ -1,16 +1,19 @@
 import { MdOutlineDashboard } from "react-icons/md";
+import { PiShoppingBagOpenThin, PiShoppingCartDuotone } from "react-icons/pi";
 
 export const menuListSidebar = [
   {
-    title: "Main",
-    items: [{ text: "Dashboard", icon: <MdOutlineDashboard />, href: "/" }],
+    label: "Main",
+    items: [
+      { text: "Dashboard", icon: <MdOutlineDashboard size={20} />, href: "/" },
+    ],
   },
   {
-    title: "Shop management",
+    label: "Shop management",
     items: [
       {
         text: "Shops",
-        icon: <MdOutlineDashboard />,
+        icon: <PiShoppingCartDuotone size={20} />,
         href: "#",
         subItems: [
           { text: "All shops", href: "/shops" },
@@ -18,15 +21,19 @@ export const menuListSidebar = [
           { text: "Inactive/New shops", href: "/new-shops" },
         ],
       },
-      { text: "My Shops", icon: <MdOutlineDashboard />, href: "/my-shops" },
+      {
+        text: "My Shops",
+        icon: <PiShoppingBagOpenThin size={20} />,
+        href: "/my-shops",
+      },
     ],
   },
   {
-    title: "Product management",
+    label: "Product management",
     items: [
       {
         text: "Products",
-        icon: <MdOutlineDashboard />,
+        icon: <MdOutlineDashboard size={20} />,
         href: "#",
         subItems: [
           { text: "All Products", href: "/products" },
@@ -39,29 +46,29 @@ export const menuListSidebar = [
       },
       {
         text: "Inventory",
-        icon: <MdOutlineDashboard />,
+        icon: <MdOutlineDashboard size={20} />,
         href: "/products/inventory",
       },
-      { text: "Categories", icon: <MdOutlineDashboard />, href: "/categories" },
-      { text: "Tags", icon: <MdOutlineDashboard />, href: "/tags" },
-      { text: "Attributes", icon: <MdOutlineDashboard />, href: "/attributes" },
+      { text: "Categories", icon: <MdOutlineDashboard size={20} />, href: "/categories" },
+      { text: "Tags", icon: <MdOutlineDashboard size={20} />, href: "/tags" },
+      { text: "Attributes", icon: <MdOutlineDashboard size={20} />, href: "/attributes" },
       {
         text: "Manufacturers/Publications",
-        icon: <MdOutlineDashboard />,
+        icon: <MdOutlineDashboard size={20} />,
         href: "/manufacturers",
       },
-      { text: "Authors", icon: <MdOutlineDashboard />, href: "/authors" },
+      { text: "Authors", icon: <MdOutlineDashboard size={20} />, href: "/authors" },
     ],
   },
   {
-    title: "E-commerce Management",
+    label: "E-commerce Management",
     items: [
-      { text: "Taxes", icon: <MdOutlineDashboard />, href: "/taxes" },
-      { text: "Shippings", icon: <MdOutlineDashboard />, href: "/shippings" },
-      { text: "Withdrawals", icon: <MdOutlineDashboard />, href: "/withdraws" },
+      { text: "Taxes", icon: <MdOutlineDashboard size={20} />, href: "/taxes" },
+      { text: "Shippings", icon: <MdOutlineDashboard size={20} />, href: "/shippings" },
+      { text: "Withdrawals", icon: <MdOutlineDashboard size={20} />, href: "/withdraws" },
       {
         text: "Refunds",
-        icon: <MdOutlineDashboard />,
+        icon: <MdOutlineDashboard size={20} />,
         href: "#",
         subItems: [
           { text: "Reported refunds", href: "/refunds" },
@@ -74,17 +81,17 @@ export const menuListSidebar = [
     ],
   },
   {
-    title: "Layout/Page control",
+    label: "Layout/Page control",
     items: [
       {
         text: "Home pages / Groups",
-        icon: <MdOutlineDashboard />,
+        icon: <MdOutlineDashboard size={20} />,
         href: "/groups",
       },
       {
-        id:"1",
+        id: "1",
         text: "FAQs",
-        icon: <MdOutlineDashboard />,
+        icon: <MdOutlineDashboard size={20} />,
         href: "#",
         subItems: [
           { text: "All FAQs", href: "/faqs" },
@@ -92,9 +99,9 @@ export const menuListSidebar = [
         ],
       },
       {
-        id:"2",
+        id: "2",
         text: "Terms And Conditions",
-        icon: <MdOutlineDashboard />,
+        icon: <MdOutlineDashboard size={20} />,
         href: "#",
         subItems: [
           { text: "All Terms", href: "/terms-and-conditions" },
@@ -104,33 +111,33 @@ export const menuListSidebar = [
     ],
   },
   {
-    title: "Order management",
+    label: "Order management",
     items: [
-      { text: "Orders", icon: <MdOutlineDashboard />, href: "/orders" },
+      { text: "Orders", icon: <MdOutlineDashboard size={20} />, href: "/orders" },
       {
         text: "Create Order",
-        icon: <MdOutlineDashboard />,
+        icon: <MdOutlineDashboard size={20} />,
         href: "/orders/create",
       },
       {
         text: "Transactions",
-        icon: <MdOutlineDashboard />,
+        icon: <MdOutlineDashboard size={20} />,
         href: "/orders/transaction",
       },
     ],
   },
   {
-    title: "User control",
+    label: "User control",
     items: [
-      { text: "All users", icon: <MdOutlineDashboard />, href: "/users" },
+      { text: "All users", icon: <MdOutlineDashboard size={20} />, href: "/users" },
       {
         text: "Admin list",
-        icon: <MdOutlineDashboard />,
+        icon: <MdOutlineDashboard size={20} />,
         href: "/users/admins",
       },
       {
         text: "Vendors",
-        icon: <MdOutlineDashboard />,
+        icon: <MdOutlineDashboard size={20} />,
         href: "#",
         subItems: [
           { text: "All vendors", href: "/users/vendors" },
@@ -139,7 +146,7 @@ export const menuListSidebar = [
       },
       {
         text: "Staff",
-        icon: <MdOutlineDashboard />,
+        icon: <MdOutlineDashboard size={20} />,
         href: "#",
         subItems: [
           { text: "My Staffs", href: "/users/my-staffs" },
@@ -148,24 +155,24 @@ export const menuListSidebar = [
       },
       {
         text: "Customers",
-        icon: <MdOutlineDashboard />,
+        icon: <MdOutlineDashboard size={20} />,
         href: "/users/customer",
       },
     ],
   },
   {
-    title: "Feedback control",
+    label: "Feedback control",
     items: [
-      { text: "Reviews", icon: <MdOutlineDashboard />, href: "/reviews" },
-      { text: "Questions", icon: <MdOutlineDashboard />, href: "/questions" },
+      { text: "Reviews", icon: <MdOutlineDashboard size={20} />, href: "/reviews" },
+      { text: "Questions", icon: <MdOutlineDashboard size={20} />, href: "/questions" },
     ],
   },
   {
-    title: "Promotional management",
+    label: "Promotional management",
     items: [
       {
         text: "Coupons",
-        icon: <MdOutlineDashboard />,
+        icon: <MdOutlineDashboard size={20} />,
         href: "#",
         subItems: [
           { text: "All coupons", href: "/coupons" },
@@ -174,7 +181,7 @@ export const menuListSidebar = [
       },
       {
         text: "Flash Sale",
-        icon: <MdOutlineDashboard />,
+        icon: <MdOutlineDashboard size={20} />,
         href: "#",
         subItems: [
           { text: "All campaigns", href: "/flash-sale" },
@@ -185,22 +192,22 @@ export const menuListSidebar = [
     ],
   },
   {
-    title: "Feature Management",
+    label: "Feature Management",
     items: [
-      { text: "Message", icon: <MdOutlineDashboard />, href: "/message" },
+      { text: "Message", icon: <MdOutlineDashboard size={20} />, href: "/message" },
       {
         text: "Store Notice",
-        icon: <MdOutlineDashboard />,
+        icon: <MdOutlineDashboard size={20} />,
         href: "/store-notices",
       },
     ],
   },
   {
-    title: "Site management",
+    label: "Site management",
     items: [
       {
         text: "Settings",
-        icon: <MdOutlineDashboard />,
+        icon: <MdOutlineDashboard size={20} />,
         href: "#",
         subItems: [
           { text: "General settings", href: "/settings" },
