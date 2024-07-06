@@ -3,13 +3,13 @@ import { PiShoppingBagOpenThin, PiShoppingCartDuotone } from "react-icons/pi";
 
 export const menuListSidebar = [
   {
-    title: "Main",
+    label: "Main",
     items: [
       { text: "Dashboard", icon: <MdOutlineDashboard size={20} />, href: "/" },
     ],
   },
   {
-    title: "Shop management",
+    label: "Shop management",
     items: [
       {
         text: "Shops",
@@ -29,7 +29,7 @@ export const menuListSidebar = [
     ],
   },
   {
-    title: "Product management",
+    label: "Product management",
     items: [
       {
         text: "Products",
@@ -61,7 +61,7 @@ export const menuListSidebar = [
     ],
   },
   {
-    title: "E-commerce Management",
+    label: "E-commerce Management",
     items: [
       { text: "Taxes", icon: <MdOutlineDashboard size={20} />, href: "/taxes" },
       { text: "Shippings", icon: <MdOutlineDashboard size={20} />, href: "/shippings" },
@@ -81,7 +81,7 @@ export const menuListSidebar = [
     ],
   },
   {
-    title: "Layout/Page control",
+    label: "Layout/Page control",
     items: [
       {
         text: "Home pages / Groups",
@@ -111,7 +111,7 @@ export const menuListSidebar = [
     ],
   },
   {
-    title: "Order management",
+    label: "Order management",
     items: [
       { text: "Orders", icon: <MdOutlineDashboard size={20} />, href: "/orders" },
       {
@@ -127,7 +127,7 @@ export const menuListSidebar = [
     ],
   },
   {
-    title: "User control",
+    label: "User control",
     items: [
       { text: "All users", icon: <MdOutlineDashboard size={20} />, href: "/users" },
       {
@@ -161,14 +161,14 @@ export const menuListSidebar = [
     ],
   },
   {
-    title: "Feedback control",
+    label: "Feedback control",
     items: [
       { text: "Reviews", icon: <MdOutlineDashboard size={20} />, href: "/reviews" },
       { text: "Questions", icon: <MdOutlineDashboard size={20} />, href: "/questions" },
     ],
   },
   {
-    title: "Promotional management",
+    label: "Promotional management",
     items: [
       {
         text: "Coupons",
@@ -192,7 +192,7 @@ export const menuListSidebar = [
     ],
   },
   {
-    title: "Feature Management",
+    label: "Feature Management",
     items: [
       { text: "Message", icon: <MdOutlineDashboard size={20} />, href: "/message" },
       {
@@ -203,7 +203,7 @@ export const menuListSidebar = [
     ],
   },
   {
-    title: "Site management",
+    label: "Site management",
     items: [
       {
         text: "Settings",

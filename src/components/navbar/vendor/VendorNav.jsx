@@ -1,148 +1,93 @@
-import * as React from "react";
-import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import MuiDrawer from "@mui/material/Drawer";
-import MuiAppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import CssBaseline from "@mui/material/CssBaseline";
-import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
+import { useState } from "react";
+import { Layout, Menu, Breadcrumb } from "antd";
 import navlogowithtext from "../../../../src/assets/navlogowithtext.webp";
 import iconlogonav from "../../../../src/assets/iconlogonav.webp";
-import VendorSidebarSection from "./VendorSidebarSection";
 import { menuListSidebar } from "./menuListSidebar";
+import HeaderVendor from "./HeaderVendor";
 
-const drawerWidth = 305;
+const { Header, Content, Footer, Sider } = Layout;
 
-const openedMixin = (theme) => ({
-  width: drawerWidth,
-  transition: theme.transitions.create("width", {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.enteringScreen,
-  }),
-  overflowX: "hidden",
-});
+const VendorNav = () => {
+  const [collapsed, setCollapsed] = useState(false);
 
-const closedMixin = (theme) => ({
-  transition: theme.transitions.create("width", {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  overflowX: "hidden",
-  width: `calc(${theme.spacing(7)} + 1px)`,
-  [theme.breakpoints.up("sm")]: {
-    width: `calc(${theme.spacing(8)} + 1px)`,
-  },
-});
-
-const DrawerHeader = styled("div")(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "flex-end",
-  padding: theme.spacing(0, 1),
-  ...theme.mixins.toolbar,
-}));
-
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
-  zIndex: theme.zIndex.drawer + 1,
-  transition: theme.transitions.create(["width", "margin"], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  ...(open && {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(["width", "margin"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  }),
-  ...(!open && {
-    marginLeft: `calc(${theme.spacing(7)} + 1px)`,
-    width: `calc(100% - ${theme.spacing(7)} - 1px)`,
-    transition: theme.transitions.create(["width", "margin"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    [theme.breakpoints.up("sm")]: {
-      marginLeft: `calc(${theme.spacing(8)} + 1px)`,
-      width: `calc(100% - ${theme.spacing(8)} - 1px)`,
-    },
-  }),
-}));
-
-const Drawer = styled(MuiDrawer, {
-  shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
-  width: drawerWidth,
-  flexShrink: 0,
-  whiteSpace: "nowrap",
-  boxSizing: "border-box",
-  ...(open && {
-    ...openedMixin(theme),
-    "& .MuiDrawer-paper": openedMixin(theme),
-  }),
-  ...(!open && {
-    ...closedMixin(theme),
-    "& .MuiDrawer-paper": closedMixin(theme),
-  }),
-}));
-
-
-export default function VendorNav() {
-  const [open, setOpen] = React.useState(true);
-  const [currentTab, setCurrentTab] = React.useState(0);
-
-  const toggleDrawer = () => {
-    setOpen((prevOpen) => !prevOpen);
-  };
-
-  const handleTabChange = (index) => {
-    setCurrentTab(index);
+  const toggleCollapsed = () => {
+    setCollapsed(!collapsed);
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
-      <CssBaseline />
-      <AppBar position="fixed" open={open} color="inherit">
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={toggleDrawer}
-            edge="start"
-            sx={{ marginRight: 5 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            PickBazar
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
+    <Layout style={{ minHeight: "100vh", backgroundColor: "white" }}>
+      <Sider
+        collapsible
+        collapsed={collapsed}
+        trigger={null}
+        onCollapse={toggleCollapsed}
+        style={{ backgroundColor: "white" }}
+      >
+        <div className="demo-logo-vertical">
           <img
-            src={open ? navlogowithtext : iconlogonav}
+            src={collapsed ? iconlogonav : navlogowithtext}
             alt="Logo"
-            style={{ width: "100%", padding: "10px" }}
+            style={{ padding: collapsed ? "16px 17px" : "21px 12px" }}
           />
-        </DrawerHeader>
-        <Divider />
-        <VendorSidebarSection onTabChange={handleTabChange} />
-      </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <DrawerHeader />
-        {menuListSidebar[currentTab] && (
-          <Typography paragraph>
-            {menuListSidebar[currentTab].title} content goes here
-          </Typography>
-        )}
-      </Box>
-    </Box>
+        </div>
+        <Menu
+          mode="inline"
+          className="dashboard-sidebar-scrollbar max-h-screen"
+        >
+          {menuListSidebar.map((section, index) => (
+            <Menu.ItemGroup
+              key={`section-${index}`}
+              title={section.label}
+              icon={section.icon}
+            >
+              {section.items.map((item, idx) =>
+                item.subItems ? (
+                  <Menu.SubMenu
+                    key={`sub-${index}-${idx}`}
+                    title={item.text}
+                    icon={item.icon}
+                  >
+                    {item.subItems.map((subItem, subIdx) => (
+                      <Menu.Item key={`subItem-${index}-${idx}-${subIdx}`}>
+                        <a href={subItem.href}>{subItem.text}</a>
+                      </Menu.Item>
+                    ))}
+                  </Menu.SubMenu>
+                ) : (
+                  <Menu.Item key={`item-${index}-${idx}`} icon={item.icon}>
+                    <a href={item.href}>{item.text}</a>
+                  </Menu.Item>
+                )
+              )}
+            </Menu.ItemGroup>
+          ))}
+        </Menu>
+      </Sider>
+      <Layout className="site-layout">
+        <Header
+          className="site-layout-background"
+          style={{ padding: 0, backgroundColor: "white", height: "auto" }}
+        >
+          <HeaderVendor toggleCollapsed={toggleCollapsed} />
+        </Header>
+        <Content style={{ margin: "0 16px" }}>
+          <Breadcrumb style={{ margin: "16px 0" }}>
+            <Breadcrumb.Item>User</Breadcrumb.Item>
+            <Breadcrumb.Item>Bill</Breadcrumb.Item>
+          </Breadcrumb>
+          <div
+            className="site-layout-background"
+            style={{ padding: 24, minHeight: 360 }}
+          >
+            Bill is a cat.
+          </div>
+        </Content>
+        <Footer style={{ textAlign: "center" }}>
+          Ant Design ©{new Date().getFullYear()} Created by Ant UED
+        </Footer>
+      </Layout>
+    </Layout>
   );
-}
+};
+
+export default VendorNav;
