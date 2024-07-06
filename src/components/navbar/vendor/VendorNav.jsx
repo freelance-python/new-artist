@@ -37,7 +37,15 @@ const VendorNav = () => {
           {menuListSidebar.map((section, index) => (
             <Menu.ItemGroup
               key={`section-${index}`}
-              title={section.label}
+              title={
+                <span className="menu-itemgroup-title text-xs font-semibold">
+                  {!collapsed ? section.label : ""}
+                </span>
+              }
+              style={{
+                borderBottom: collapsed ? "1px dashed #e5e7eb" : "",
+                padding: "none",
+              }}
               icon={section.icon}
             >
               {section.items.map((item, idx) =>
@@ -66,9 +74,12 @@ const VendorNav = () => {
       <Layout className="site-layout">
         <Header
           className="site-layout-background"
-          style={{ padding: 0, backgroundColor: "white", height: "auto" }}
+          style={{ padding: 0, backgroundColor: "white", height: "75px" }}
         >
-          <HeaderVendor toggleCollapsed={toggleCollapsed} />
+          <HeaderVendor
+            toggleCollapsed={toggleCollapsed}
+            collapsed={collapsed}
+          />
         </Header>
         <Content style={{ margin: "0 16px" }}>
           <Breadcrumb style={{ margin: "16px 0" }}>
@@ -82,8 +93,25 @@ const VendorNav = () => {
             Bill is a cat.
           </div>
         </Content>
-        <Footer style={{ textAlign: "center" }}>
-          Ant Design ©{new Date().getFullYear()} Created by Ant UED
+        <Footer className="bg-white shadow">
+          <div className="flex items-center justify-between">
+            <span className="text-sm text-body sm:text-center">
+              ©2024{" "}
+              <a
+                className="font-medium text-heading"
+                href="https://pickbazar.redq.io"
+              >
+                Pickbazar
+              </a>
+              . Copyright © REDQ. All rights reserved worldwide.{" "}
+              <a className="font-medium text-heading" href="https://redq.io">
+                REDQ
+              </a>
+            </span>
+            <div className="flex space-x-6 text-sm font-medium text-body sm:justify-center">
+              11.7.0
+            </div>
+          </div>
         </Footer>
       </Layout>
     </Layout>
