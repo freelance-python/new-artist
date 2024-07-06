@@ -10,7 +10,7 @@ export default function CarouselProductDetailImage({ imagesData }) {
   const pagination = {
     clickable: true,
     renderBullet: function (index, className) {
-      return `<span class="${className} h-20 w-20"><img src="${imagesData[
+      return `<span class="${className} h-20 w-20"><img alt="swipper-pagination" src="${imagesData[
         index
       ].toString()}" class="h-20 w-20"/></span>`;
     },
@@ -26,7 +26,7 @@ export default function CarouselProductDetailImage({ imagesData }) {
     >
       {imagesData?.slice(0, 4)?.map((item) => (
         <SwiperSlide key={item?.toString()}>
-          <img src={item} />
+          <img src={item} alt="swipper-image" />
         </SwiperSlide>
       ))}
     </Swiper>

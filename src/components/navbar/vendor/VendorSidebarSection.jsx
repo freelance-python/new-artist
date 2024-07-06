@@ -73,7 +73,7 @@ const VendorSidebarSection = () => {
                               justifyContent: "initial",
                               alignItems: "center",
                             }}
-                            href={subItem.href}
+                            // href={subItem.href}
                           >
                             <ListItemIcon
                               sx={{
@@ -100,7 +100,7 @@ const VendorSidebarSection = () => {
                         justifyContent: "initial",
                         alignItems: "center",
                       }}
-                      href={item.href}
+                      // href={item.href}
                     >
                       <ListItemIcon
                         sx={{
