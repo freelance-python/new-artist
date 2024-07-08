@@ -1,13 +1,16 @@
 import { useState } from "react";
-import { Layout, Menu, Breadcrumb } from "antd";
+import propTypes from "prop-types";
+import { Layout, Menu } from "antd";
 import navlogowithtext from "../../../../src/assets/navlogowithtext.webp";
 import iconlogonav from "../../../../src/assets/iconlogonav.webp";
 import { menuListSidebar } from "./menuListSidebar";
 import HeaderVendor from "./HeaderVendor";
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Sider } = Layout;
 
-const VendorNav = () => {
+const maxLayoutHeight = "calc(100vh - 76px)";
+
+const VendorNav = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false);
 
   const toggleCollapsed = () => {
@@ -15,7 +18,9 @@ const VendorNav = () => {
   };
 
   return (
-    <Layout style={{ minHeight: "100vh", backgroundColor: "white" }}>
+    <Layout
+      style={{ maxHeight: maxLayoutHeight, backgroundColor: "white" }}
+    >
       <Sider
         collapsible
         collapsed={collapsed}
@@ -30,10 +35,7 @@ const VendorNav = () => {
             style={{ padding: collapsed ? "16px 17px" : "21px 12px" }}
           />
         </div>
-        <Menu
-          mode="inline"
-          className="dashboard-sidebar-scrollbar max-h-screen"
-        >
+        <Menu mode="inline" className="dashboard-sidebar-scrollbar max-h-full">
           {menuListSidebar.map((section, index) => (
             <Menu.ItemGroup
               key={`section-${index}`}
@@ -71,7 +73,7 @@ const VendorNav = () => {
           ))}
         </Menu>
       </Sider>
-      <Layout className="site-layout">
+      <Layout className="site-layout" style={{ maxHeight: maxLayoutHeight }}>
         <Header
           className="site-layout-background"
           style={{ padding: 0, backgroundColor: "white", height: "75px" }}
@@ -81,7 +83,8 @@ const VendorNav = () => {
             collapsed={collapsed}
           />
         </Header>
-        <Content style={{ margin: "0 16px" }}>
+        {children}
+        {/* <Content style={{ margin: "0 16px" }}>
           <Breadcrumb style={{ margin: "16px 0" }}>
             <Breadcrumb.Item>User</Breadcrumb.Item>
             <Breadcrumb.Item>Bill</Breadcrumb.Item>
@@ -112,10 +115,14 @@ const VendorNav = () => {
               11.7.0
             </div>
           </div>
-        </Footer>
+        </Footer> */}
       </Layout>
     </Layout>
   );
 };
 
 export default VendorNav;
+
+VendorNav.propTypes = {
+  children: propTypes.node.isRequired,
+};

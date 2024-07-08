@@ -7,8 +7,16 @@ import VendorNav from "./vendor/VendorNav";
 const Layout = ({ type = "user" }) => {
   return (
     <>
-      {type === "vendor" ? <VendorNav /> : <HomeNav />}
-      <Outlet />
+      {type === "vendor" ? (
+        <VendorNav>
+          <Outlet />
+        </VendorNav>
+      ) : (
+        <>
+          <HomeNav />
+          <Outlet />
+        </>
+      )}
     </>
   );
 };
