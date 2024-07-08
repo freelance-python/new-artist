@@ -1,13 +1,16 @@
 import { useState } from "react";
-import { Layout, Menu, Breadcrumb } from "antd";
+import propTypes from "prop-types";
+import { Layout, Menu } from "antd";
 import navlogowithtext from "../../../../src/assets/navlogowithtext.webp";
 import iconlogonav from "../../../../src/assets/iconlogonav.webp";
 import { menuListSidebar } from "./menuListSidebar";
 import HeaderVendor from "./HeaderVendor";
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Sider } = Layout;
 
-const VendorNav = () => {
+const maxLayoutHeight = "calc(100vh - 76px)";
+
+const VendorNav = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false);
 
   const toggleCollapsed = () => {
@@ -15,7 +18,9 @@ const VendorNav = () => {
   };
 
   return (
-    <Layout style={{ minHeight: "100vh", backgroundColor: "white" }}>
+    <Layout
+      style={{ maxHeight: maxLayoutHeight, backgroundColor: "white" }}
+    >
       <Sider
         collapsible
         collapsed={collapsed}
@@ -30,14 +35,19 @@ const VendorNav = () => {
             style={{ padding: collapsed ? "16px 17px" : "21px 12px" }}
           />
         </div>
-        <Menu
-          mode="inline"
-          className="dashboard-sidebar-scrollbar max-h-screen"
-        >
+        <Menu mode="inline" className="dashboard-sidebar-scrollbar max-h-full">
           {menuListSidebar.map((section, index) => (
             <Menu.ItemGroup
               key={`section-${index}`}
-              title={section.label}
+              title={
+                <span className="menu-itemgroup-title text-xs font-semibold">
+                  {!collapsed ? section.label : ""}
+                </span>
+              }
+              style={{
+                borderBottom: collapsed ? "1px dashed #e5e7eb" : "",
+                padding: "none",
+              }}
               icon={section.icon}
             >
               {section.items.map((item, idx) =>
@@ -63,14 +73,18 @@ const VendorNav = () => {
           ))}
         </Menu>
       </Sider>
-      <Layout className="site-layout">
+      <Layout className="site-layout" style={{ maxHeight: maxLayoutHeight }}>
         <Header
           className="site-layout-background"
-          style={{ padding: 0, backgroundColor: "white", height: "auto" }}
+          style={{ padding: 0, backgroundColor: "white", height: "75px" }}
         >
-          <HeaderVendor toggleCollapsed={toggleCollapsed} />
+          <HeaderVendor
+            toggleCollapsed={toggleCollapsed}
+            collapsed={collapsed}
+          />
         </Header>
-        <Content style={{ margin: "0 16px" }}>
+        {children}
+        {/* <Content style={{ margin: "0 16px" }}>
           <Breadcrumb style={{ margin: "16px 0" }}>
             <Breadcrumb.Item>User</Breadcrumb.Item>
             <Breadcrumb.Item>Bill</Breadcrumb.Item>
@@ -82,12 +96,33 @@ const VendorNav = () => {
             Bill is a cat.
           </div>
         </Content>
-        <Footer style={{ textAlign: "center" }}>
-          Ant Design ©{new Date().getFullYear()} Created by Ant UED
-        </Footer>
+        <Footer className="bg-white shadow">
+          <div className="flex items-center justify-between">
+            <span className="text-sm text-body sm:text-center">
+              ©2024{" "}
+              <a
+                className="font-medium text-heading"
+                href="https://pickbazar.redq.io"
+              >
+                Pickbazar
+              </a>
+              . Copyright © REDQ. All rights reserved worldwide.{" "}
+              <a className="font-medium text-heading" href="https://redq.io">
+                REDQ
+              </a>
+            </span>
+            <div className="flex space-x-6 text-sm font-medium text-body sm:justify-center">
+              11.7.0
+            </div>
+          </div>
+        </Footer> */}
       </Layout>
     </Layout>
   );
 };
 
 export default VendorNav;
+
+VendorNav.propTypes = {
+  children: propTypes.node.isRequired,
+};

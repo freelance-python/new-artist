@@ -61,6 +61,7 @@ const AppRoutes = () => {
         {/* vendor routes start */}
         <Route element={<Layout type="vendor" />}>
           <Route path="/vendor" element={<Vendor />} />
+          <Route path="/jakhar" element={<>JAKHAR</>} />
         </Route>
         {/* vendor routes end */}
       </Routes>
